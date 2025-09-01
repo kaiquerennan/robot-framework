@@ -1,5 +1,6 @@
 *** Settings ***
-Resource    ../src/cadastro.resource
+Resource    Cliente.resource
+Resource    ../Resources Genericos/generico.resource
 
 *** Test Cases ***
 Realizar login na aplicação e acessar cadastro de cliente

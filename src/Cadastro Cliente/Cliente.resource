@@ -1,20 +1,11 @@
 *** Settings ***
 Library    Browser
-Library    ../libs/GeradorDocumento.py
-Library    ../libs/ChatGPTLibrary.py    api_key=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    modo_teste=${MODO_TESTE}
+Library    ../../libs/GeradorDocumento.py
+Library    ../../libs/ChatGPTLibrary.py    api_key=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    modo_teste=${MODO_TESTE}
 *** Variables ***
 ${URL}    https://emc-frontend-hml.emcsistemas.com.br/login
 ${MODO_TESTE}    False
 *** Keywords ***
-Abrir navegador 
-    New Browser    chromium    headless=False
-    ${context}=    New Context    ignoreHTTPSErrors=True    viewport={'width': 1920, 'height': 1080}
-    New Page    ${URL}   
-Preencher Login
-    Fill Text    css=input[placeholder="Nome de usuário ou email"]    kaique
-    Fill Text    css=input[placeholder="Sua senha"]    1234567
-    Click    text=Entrar
-
 Acessar cadastro de cliente
     Click    xpath=//button[@data-slot="button" and contains(., "Cadastros")]
     Click    xpath=//button[@data-slot="button" and contains(., "Clientes")]
@@ -45,3 +36,5 @@ Cadastrar cliente
     Fill Text    css=input[placeholder="E-mail"]    ${email}
 
     Click    text=Salvar
+
+    
