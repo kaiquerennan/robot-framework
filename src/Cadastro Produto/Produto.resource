@@ -12,8 +12,15 @@ Cadastrar Produtos
     Click    xpath=//button[@data-slot="button" and contains(., "Cadastros")]
     Click    xpath=//button[@data-slot="button" and contains(., "Produtos")]
     Click    text=Novo Produto
-    ${nome}=     ChatGPT    Gere um nome de produto simples com no mínimo 5 caracteres. Retorne apenas o nome, sem mais nada
+    ${nome}=     ChatGPT    Gere um nome de produtos famosos simples com no mínimo 5 caracteres. Retorne apenas 1(um) nome, sem mais nada. Sem ser grande
     Fill Text    css=#descricao   ${nome}
     Fill Text    css=#descricaoResumida    ${nome}
+    Click    text=Gerenciar
+    Click    css=#n1
+    Click    xpath=(//div[@role="option"])[1]
+    Click    css=div.btn-default.bg-primary >> text=Salvar
+    Click    css=#unidadeComercialId
+    Click    xpath=(//div[@role="option"])[4]
     Click    text=Preços / Custos
     Fill Text    css=#precoPadrao    20,00
+    Click    text=Salvar
