@@ -16,4 +16,4 @@ Cadastrar Produtos
     Fill Text    css=#descricao   ${nome}
     Fill Text    css=#descricaoResumida    ${nome}
     Click    text=Preços / Custos
-    Fill Text    css=#precoPadrao    10,00
+    Fill Text    css=#precoPadrao    20,00
