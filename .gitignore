@@ -20,4 +20,3 @@ playwright-log.txt
 __pycache__/
 *.pyc
 
-# Ignore environment files
