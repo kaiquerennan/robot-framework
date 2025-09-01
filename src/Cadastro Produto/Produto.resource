@@ -20,7 +20,7 @@ Cadastrar Produtos
     Click    xpath=(//div[@role="option"])[1]
     Click    css=div.btn-default.bg-primary >> text=Salvar
     Click    css=#unidadeComercialId
-    Click    xpath=(//div[@role="option"])[4]
+    Click    xpath=(//div[@role="option"])[2]
     Click    text=Preços / Custos
     Fill Text    css=#precoPadrao    20,00
     Click    text=Salvar
