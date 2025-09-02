@@ -2,6 +2,7 @@
 Library    Browser
 Library    ../../libs/GeradorDocumento.py
 Library    ../../libs/ChatGPTLibrary.py    api_key=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    modo_teste=${MODO_TESTE}
+Library    ../../libs/BuscarCepAleatorio.py
 *** Variables ***
 ${URL}    https://emc-frontend-hml.emcsistemas.com.br/login
 ${MODO_TESTE}    False

@@ -40,3 +40,7 @@ class BuscarCepAleatorio:
 
     def cep_parece_invalido(self, cep):
         return cep.startswith("00000") or cep.startswith("99999")
+
+def Gerar_Cep_Valido():
+    return BuscarCepAleatorio().gerar_cep_valido()
+
