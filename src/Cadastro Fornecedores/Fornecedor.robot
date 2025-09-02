@@ -12,5 +12,5 @@ Cadastrar Fornecedor
     Preencher CEP
     Cadastrar Telefone
     Click    text=Salvar >> visible=true
-    Sleep    5s
+    Sleep    2s
     Close Browser
