@@ -10,5 +10,7 @@ Cadastrar Fornecedor
     Acessar cadastro de fornecedor
     Cadastrar fornecedor
     Preencher CEP
+    Cadastrar Telefone
+    Click    text=Salvar >> visible=true
     Sleep    5s
     Close Browser

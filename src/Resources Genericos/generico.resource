@@ -6,6 +6,7 @@ Library    ../../libs/ChatGPTLibrary.py    api_key=sk-proj-V9WiVjmuq-8StRy13hD35
 *** Variables ***
 ${URL}    https://emc-frontend-hml.emcsistemas.com.br/login
 ${MODO_TESTE}    False
+
 *** Keywords ***
 Abrir navegador 
     New Browser    firefox    headless=False
@@ -20,15 +21,27 @@ Preencher Login
 Preencher CEP    
     Click    text=Endereços
     Click    text=Adicionar >> visible=true
-    ${endereço}    ChatGPT    Gere uma identificação simples para o endereço do fornecedor, com poucos caracteres. retorne só o nome, mais nada
-    Fill Text    css=input[placeholder="Identificação"]    ${endereço}
+    ${identificacao}    ChatGPT    Gere uma identificação simples que possa ser usada para telefone e endereço e uma pessoa, com poucos caracteres. retorne só o nome, mais nada
+    Fill Text    css=input[placeholder="Identificação"]    ${identificacao}
     Fill Text    css=input[placeholder="CEP"]    35930162
-    Sleep    2s
+    Sleep    0.5s
     ${numero}    Evaluate    random.randint(1, 999)    modules=random
-    Sleep    1s
     Fill Text    css=#numero    ${numero}
-    ${identificação}    Evaluate    random.randint(1, 2)    modules=random
+    ${tipo_endereço}    Evaluate    random.randint(1, 2)    modules=random
     Click    css=#tipoEndereco 
-    Click    xpath=(//div[@role="option"])[${identificação}]
+    Click    xpath=(//div[@role="option"])[${tipo_endereço}]
     Click    xpath=//*[@id="radix-«r3e»"]/div/div[2]/div[2]/div[2]
-    Click    text=Salvar >> visible=true
+
+Cadastrar Telefone
+    Click    text=Telefones
+    Click    text=Adicionar >> visible=true
+    ${tipo_telefone}    Evaluate    random.randint(1, 3)    modules=random
+    Click    css=#tipoTelefone 
+    Click    xpath=(//div[@role="option"])[${tipo_telefone}]
+    ${identificacao}    ChatGPT    Gere uma identificação simples que possa ser usada para telefone e endereço e uma pessoa, com poucos caracteres. retorne só o nome, mais nada
+    Fill Text    css=input[placeholder="Identificação"]    ${identificacao}
+    ${numero_telefone}    ChatGPT    Gere um telefone ficticio valido brasileiro sem DDD. Retorne apenas o número, mais nada
+    Fill Text    css=input[placeholder="Número"]    ${numero_telefone}
+    Click    css=#ddd
+    Click    xpath=(//div[@role="option"])[2]
+    Click    xpath=//*[@id="radix-«r3j»"]/div/div[2]/div[2]/div[2]
