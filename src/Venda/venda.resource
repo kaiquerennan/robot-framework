@@ -26,13 +26,14 @@ Acessar tela de venda
     Click         xpath=/html/body/div/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/div[3]/button
     Sleep         1s
     Click         xpath=(//div[contains(@class,"cursor-pointer")])[last()]
-
-
-Clicar Em Produto Disponivel Aleatorio
-    Wait For Elements State    css=div.gridRow    visible    15s
-    ${produtos}=    Get Elements    css=div.gridRow:not(.opacity-50):not(.cursor-not-allowed)
-    ${qtd}=    Get Length    ${produtos}
-    Log To Console    Produtos disponíveis encontrados: ${qtd}
-    Should Be True    ${qtd} > 0
-    ${index}=    Evaluate    random.randint(0, ${qtd}-1)    random
-    Click    ${produtos}[${index}]]
+    Sleep    1s
+    ${rows}=    Get Elements    css=.gridRow:not(.opacity-50):not(.cursor-not-allowed)
+    ${num_rows}=    Get Length    ${rows}
+    Should Be True    ${num_rows} > 0    Nenhum produto habilitado encontrado
+    ${random_index}=    Evaluate    random.randint(0, ${num_rows} - 1)    modules=random
+    ${random_product_row}=    Set Variable    ${rows}[${random_index}]
+    Scroll To Element    ${random_product_row}
+    Wait For Elements State    ${random_product_row}    visible    5s
+    Wait For Elements State    ${random_product_row}    enabled    5s
+    Click    ${random_product_row}
+    Click    xpath=//div[contains(@class,"cursor-pointer") and normalize-space(text())="Confirmar" and not(contains(@class,"disabled"))]

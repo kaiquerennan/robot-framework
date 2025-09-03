@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.5 on win32)" generated="2025-09-03T10:50:16.234496" rpa="false" schemaversion="5">
+<suite id="s1" name="Venda" source="c:\teste\src\Venda\venda.robot">
+<test id="s1-t1" name="Acessar tela de venda" line="7">
+<kw name="Abrir navegador" owner="generico">
+<kw name="New Browser" owner="Browser">
+<msg time="2025-09-03T10:50:18.394777" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\teste\\browser\\traces\\temp\\bb6c2335-bfda-4b6f-a06c-6818a5b40ab7"}</msg>
+<msg time="2025-09-03T10:50:18.454083" level="INFO">Starting Browser process C:\Users\kaique.alves\AppData\Local\Programs\Python\Python313\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:59788</msg>
+<msg time="2025-09-03T10:50:20.972716" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\teste\\browser\\traces\\temp\\bb6c2335-bfda-4b6f-a06c-6818a5b40ab7"}</msg>
+<arg>chromium</arg>
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2025-09-03T10:50:18.392793" elapsed="2.580574"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2025-09-03T10:50:20.980195" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": true,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "height": 1080,
+    "width": 1920
+  }
+}</msg>
+<msg time="2025-09-03T10:50:21.047109" level="INFO">Successfully created context. </msg>
+<msg time="2025-09-03T10:50:21.047544" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': True, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'height': 1080, 'width': 1920}}</msg>
+<msg time="2025-09-03T10:50:21.048020" level="INFO">${context} = context=69db900b-0959-41fc-b159-1a45c16e4e43</msg>
+<var>${context}</var>
+<arg>ignoreHTTPSErrors=True</arg>
+<arg>viewport={'width': 1920, 'height': 1080}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2025-09-03T10:50:20.974287" elapsed="0.074011"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2025-09-03T10:50:22.094630" level="INFO">Successfully initialized new page object and opened url: https://emc-frontend-hml.emcsistemas.com.br/login</msg>
+<arg>${URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2025-09-03T10:50:21.048961" elapsed="1.046559"/>
+</kw>
+<status status="PASS" start="2025-09-03T10:50:18.388755" elapsed="3.707574"/>
+</kw>
+<kw name="Preencher Login" owner="generico">
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-09-03T10:50:22.112877" level="INFO">Fills the text 'kaique' in the given field.</msg>
+<arg>css=input[placeholder="Nome de usuário ou email"]</arg>
+<arg>kaique</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-09-03T10:50:22.111155" elapsed="0.264179"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-09-03T10:50:22.378097" level="INFO">Fills the text '1234567' in the given field.</msg>
+<arg>css=input[placeholder="Sua senha"]</arg>
+<arg>1234567</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-09-03T10:50:22.376226" elapsed="0.040425"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2025-09-03T10:50:22.418891" level="INFO">Clicks the element 'text=Entrar'.</msg>
+<arg>text=Entrar</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-09-03T10:50:22.417376" elapsed="0.108401"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-03T10:50:23.418564" level="INFO">Waited for Element with selector xpath=//span[text()="Dashboard"] at state visible</msg>
+<arg>xpath=//span[text()="Dashboard"]</arg>
+<arg>visible</arg>
+<arg>timeout=15s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-09-03T10:50:22.526876" elapsed="0.892401"/>
+</kw>
+<status status="PASS" start="2025-09-03T10:50:22.107117" elapsed="1.312477"/>
+</kw>
+<kw name="Acessar tela de venda" owner="venda">
+<kw name="Click" owner="Browser">
+<msg time="2025-09-03T10:50:23.424031" level="INFO">Clicks the element 'text=Vendas'.</msg>
+<arg>text=Vendas</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-09-03T10:50:23.422605" elapsed="0.479526"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2025-09-03T10:50:23.904462" level="INFO">Clicks the element 'text=Nova venda'.</msg>
+<arg>text=Nova venda</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-09-03T10:50:23.902908" elapsed="1.214441"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-03T10:50:27.119601" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-03T10:50:25.118249" elapsed="2.001915"/>
+</kw>
+<kw name="Reload" owner="Browser">
+<msg time="2025-09-03T10:50:27.450493" level="INFO">Reloaded page with options: {"waitUntil": "load"}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Reloads current active page.</doc>
+<status status="PASS" start="2025-09-03T10:50:27.120719" elapsed="0.330850"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2025-09-03T10:50:27.454529" level="INFO">Clicks the element 'css=#origemVenda'.</msg>
+<arg>css=#origemVenda</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-09-03T10:50:27.452845" elapsed="0.345702"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2025-09-03T10:50:27.801023" level="INFO">Clicks the element 'xpath=(//div[@role="option"])[2]'.</msg>
+<arg>xpath=(//div[@role="option"])[2]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-09-03T10:50:27.799258" elapsed="0.233605"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2025-09-03T10:50:28.035537" level="INFO">Clicks the element 'xpath=//body'.</msg>
+<arg>xpath=//body</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-09-03T10:50:28.033730" elapsed="0.069015"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-03T10:50:28.604775" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-03T10:50:28.103432" elapsed="0.501794"/>
+</kw>
+<kw name="Press Keys" owner="Browser">
+<arg>css=input[placeholder="Código"]</arg>
+<arg>3</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given key combination into element found by ``selector``.</doc>
+<status status="PASS" start="2025-09-03T10:50:28.605571" elapsed="0.043235"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-03T10:50:29.650061" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-03T10:50:28.649211" elapsed="1.001736"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2025-09-03T10:50:29.653881" level="INFO">Clicks the element 'xpath=/html/body/div/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/div[3]/button'.</msg>
+<arg>xpath=/html/body/div/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/div[3]/button</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-09-03T10:50:29.651721" elapsed="0.099314"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-03T10:50:30.752700" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-03T10:50:29.751523" elapsed="1.002045"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2025-09-03T10:50:30.756424" level="INFO">Clicks the element 'xpath=(//div[contains(@class,"cursor-pointer")])[last()]'.</msg>
+<arg>xpath=(//div[contains(@class,"cursor-pointer")])[last()]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-09-03T10:50:30.754263" elapsed="0.173135"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-03T10:50:31.930279" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-03T10:50:30.928325" elapsed="1.002835"/>
+</kw>
+<kw name="Get Elements" owner="Browser">
+<msg time="2025-09-03T10:50:31.973068" level="INFO">Found locator('.gridRow:not(.opacity-50):not(.cursor-not-allowed)').first(),locator('.gridRow:not(.opacity-50):not(.cursor-not-allowed)').nth(1),locator('.gridRow:not(.opacity-50):not(.cursor-not-allowed)').nth(2),locator('.gridRow:not(.opacity-50):not(.cursor-not-allowed)').nth(3),locator('.gridRow:not(.opacity-50):not(.cursor-not-allowed)').nth(4),locator('.gridRow:not(.opacity-50):not(.cursor-not-allowed)').nth(5),locator('.gridRow:not(.opacity-50):not(.cursor-not-allowed)').nth(6),locator('.gridRow:not(.opacity-50):not(.cursor-not-allowed)').nth(7),locator('.gridRow:not(.opacity-50):not(.cursor-not-allowed)').nth(8) Locators successfully.</msg>
+<msg time="2025-09-03T10:50:31.973692" level="INFO">${rows} = ['css=.gridRow:not(.opacity-50):not(.cursor-not-allowed) &gt;&gt; nth=0', 'css=.gridRow:not(.opacity-50):not(.cursor-not-allowed) &gt;&gt; nth=1', 'css=.gridRow:not(.opacity-50):not(.cursor-not-allowed) &gt;&gt; nth=2'...</msg>
+<var>${rows}</var>
+<arg>css=.gridRow:not(.opacity-50):not(.cursor-not-allowed)</arg>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns a reference to Playwright [https://playwright.dev/docs/api/class-locator|Locator]
+for all matched elements by ``selector``.</doc>
+<status status="PASS" start="2025-09-03T10:50:31.931994" elapsed="0.041895"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2025-09-03T10:50:31.976343" level="INFO">Length is 9.</msg>
+<msg time="2025-09-03T10:50:31.976760" level="INFO">${num_rows} = 9</msg>
+<var>${num_rows}</var>
+<arg>${rows}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2025-09-03T10:50:31.975235" elapsed="0.001721"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${num_rows} &gt; 0</arg>
+<arg>Nenhum produto habilitado encontrado</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-09-03T10:50:31.977351" elapsed="0.000962"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-03T10:50:31.980188" level="INFO">${random_index} = 7</msg>
+<var>${random_index}</var>
+<arg>random.randint(0, ${num_rows} - 1)</arg>
+<arg>modules=random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-03T10:50:31.978870" elapsed="0.001646"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-03T10:50:31.982185" level="INFO">${random_product_row} = css=.gridRow:not(.opacity-50):not(.cursor-not-allowed) &gt;&gt; nth=7</msg>
+<var>${random_product_row}</var>
+<arg>${rows}[${random_index}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-03T10:50:31.980990" elapsed="0.001471"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>${random_product_row}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="PASS" start="2025-09-03T10:50:31.982986" elapsed="0.067070"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-03T10:50:32.067358" level="INFO">Waited for Element with selector css=.gridRow:not(.opacity-50):not(.cursor-not-allowed) &gt;&gt; nth=7 at state visible</msg>
+<arg>${random_product_row}</arg>
+<arg>visible</arg>
+<arg>5s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-09-03T10:50:32.050776" elapsed="0.016990"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-03T10:50:32.091094" level="INFO">Waited for Element with selector css=.gridRow:not(.opacity-50):not(.cursor-not-allowed) &gt;&gt; nth=7 at state enabled</msg>
+<arg>${random_product_row}</arg>
+<arg>enabled</arg>
+<arg>5s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-09-03T10:50:32.068127" elapsed="0.023788"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2025-09-03T10:50:32.094302" level="INFO">Clicks the element 'css=.gridRow:not(.opacity-50):not(.cursor-not-allowed) &gt;&gt; nth=7'.</msg>
+<arg>${random_product_row}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-09-03T10:50:32.092632" elapsed="0.062147"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2025-09-03T10:50:32.159608" level="INFO">Clicks the element 'xpath=//div[contains(@class,"cursor-pointer") and normalize-space(text())="Confirmar" and not(contains(@class,"disabled"))]'.</msg>
+<arg>xpath=//div[contains(@class,"cursor-pointer") and normalize-space(text())="Confirmar" and not(contains(@class,"disabled"))]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-09-03T10:50:32.155314" elapsed="3.716760"/>
+</kw>
+<status status="PASS" start="2025-09-03T10:50:23.421369" elapsed="12.451288"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>80s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="FAIL" start="2025-09-03T10:50:35.916623" elapsed="3.646713">Execution terminated by signal</status>
+</kw>
+<msg time="2025-09-03T10:50:39.664328" level="INFO">Switching context to context=69db900b-0959-41fc-b159-1a45c16e4e43 in CURRENT</msg>
+<msg time="2025-09-03T10:50:39.681906" level="INFO">Successfully changed active context: context=69db900b-0959-41fc-b159-1a45c16e4e43</msg>
+<msg time="2025-09-03T10:50:39.685953" level="INFO">Successfully closed Context</msg>
+<status status="FAIL" start="2025-09-03T10:50:18.386419" elapsed="21.181635">Execution terminated by signal</status>
+</test>
+<status status="FAIL" start="2025-09-03T10:50:16.245016" elapsed="23.459124"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Venda" id="s1" pass="0" fail="1" skip="0">Venda</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
+gap-4 shadow-lg inset-y-0 right-0 h-full border-l border-border animate-slideIn flex flex-col w-11/12 3xl:w-9/12 z-100"&gt;…&lt;/div&gt; subtree intercepts pointer events
+  2 × retrying click action
+      - waiting 100ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class="flex items-center justify-end flex-1 cursor-default"&gt;…&lt;/div&gt; from &lt;div role="dialog" tabindex="-1" id="radix-«r11»" data-state="open" aria-hidden="true" data-aria-hidden="true" data-slot="sheet-content" aria-labelledby="radix-«r12»" aria-describedby="radix-«r13»" class="bg-sidebar fixed gap-4 shadow-lg inset-y-0 right-0 h-full border-l border-border animate-slideIn flex flex-col w-11/12 3xl:w-9/12 z-100"&gt;…&lt;/div&gt; subtree intercepts pointer events
+  4 × retrying click action
+      - waiting 500ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class="flex justify-end  flex-1 px-1"&gt;R$ 27,00&lt;/div&gt; from &lt;div role="dialog" tabindex="-1" id="radix-«r11»" data-state="open" aria-hidden="true" data-aria-hidden="true" data-slot="sheet-content" aria-labelledby="radix-«r12»" aria-describedby="radix-«r13»" class="bg-sidebar fixed gap-4 shadow-lg inset-y-0 right-0 h-full border-l border-border animate-slideIn flex flex-col w-11/12 3xl:w-9/12 z-100"&gt;…&lt;/div&gt; subtree intercepts pointer events
+    - retrying click action
+      - waiting 500ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class="flex justify-end  flex-1 px-1"&gt;R$ 27,00&lt;/div&gt; from &lt;div role="dialog" tabindex="-1" id="radix-«r11»" data-state="open" aria-hidden="true" data-aria-hidden="true" data-slot="sheet-content" aria-labelledby="radix-«r12»" aria-describedby="radix-«r13»" class="bg-sidebar fixed gap-4 shadow-lg inset-y-0 right-0 h-full border-l border-border animate-slideIn flex flex-col w-11/12 3xl:w-9/12 z-100"&gt;…&lt;/div&gt; subtree intercepts pointer events
+    - retrying click action
+      - waiting 500ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class="flex items-center justify-end flex-1 cursor-default"&gt;…&lt;/div&gt; from &lt;div role="dialog" tabindex="-1" id="radix-«r11»" data-state="open" aria-hidden="true" data-aria-hidden="true" data-slot="sheet-content" aria-labelledby="radix-«r12»" aria-describedby="radix-«r13»" class="bg-sidebar fixed gap-4 shadow-lg inset-y-0 right-0 h-full border-l border-border animate-slideIn flex flex-col w-11/12 3xl:w-9/12 z-100"&gt;…&lt;/div&gt; subtree intercepts pointer events
+    - retrying click action
+      - waiting 500ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class="flex items-center justify-e</msg>
+<arg>${random_product_row}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="FAIL" start="2025-09-03T10:50:15.188683" elapsed="10.354562">TimeoutError: locator.click: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('.gridRow:not(.opacity-50):not(.cursor-not-allowed)').nth(2)
+    - locator resolved to &lt;div class="gridRow bg-gridRowBGAlter hover:bg-gridHover "&gt;…&lt;/div&gt;
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class="flex justify-end  flex-1 px-1"&gt;R$ 27,00&lt;/div&gt; from &lt;div role="dialog" tabindex="-1" id="radix-«r11»" data-state="open" aria-hidden="true" data-aria-hidden="true" data-slot="sheet-content" aria-labelledby="radix-«r12»" aria-describedby="radix-«r13»" class="bg-sidebar fixed gap-4 shadow-lg inset-y-0 right-0 h-full border-l border-border animate-slideIn flex flex-col w-11/12 3xl:w-9/12 z-100"&gt;…&lt;/div&gt; subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    - waiting for element to be visible, enabled and stable
+    [ Message content over the limit has been removed. ]
+    - retrying click action
+      - waiting 500ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class="flex items-center justify-end flex-1 cursor-default"&gt;…&lt;/div&gt; from &lt;div role="dialog" tabindex="-1" id="radix-«r11»" data-state="open" aria-hidden="true" data-aria-hidden="true" data-slot="sheet-content" aria-labelledby="radix-«r12»" aria-describedby="radix-«r13»" class="bg-sidebar fixed gap-4 shadow-lg inset-y-0 right-0 h-full border-l border-border animate-slideIn flex flex-col w-11/12 3xl:w-9/12 z-100"&gt;…&lt;/div&gt; subtree intercepts pointer events
+    - retrying click action
+      - waiting 500ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class="flex items-center justify-e</status>
+</kw>
+<kw name="Click" owner="Browser">
+<arg>xpath=//div[contains(@class,"cursor-pointer") and normalize-space(text())="Confirmar" and not(contains(@class,"disabled"))]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2025-09-03T10:50:25.544126" elapsed="0.000670"/>
+</kw>
+<status status="FAIL" start="2025-09-03T10:50:06.330520" elapsed="19.215135">TimeoutError: locator.click: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('.gridRow:not(.opacity-50):not(.cursor-not-allowed)').nth(2)
+    - locator resolved to &lt;div class="gridRow bg-gridRowBGAlter hover:bg-gridHover "&gt;…&lt;/div&gt;
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class="flex justify-end  flex-1 px-1"&gt;R$ 27,00&lt;/div&gt; from &lt;div role="dialog" tabindex="-1" id="radix-«r11»" data-state="open" aria-hidden="true" data-aria-hidden="true" data-slot="sheet-content" aria-labelledby="radix-«r12»" aria-describedby="radix-«r13»" class="bg-sidebar fixed gap-4 shadow-lg inset-y-0 right-0 h-full border-l border-border animate-slideIn flex flex-col w-11/12 3xl:w-9/12 z-100"&gt;…&lt;/div&gt; subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    - waiting for element to be visible, enabled and stable
+    [ Message content over the limit has been removed. ]
+    - retrying click action
+      - waiting 500ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class="flex items-center justify-end flex-1 cursor-default"&gt;…&lt;/div&gt; from &lt;div role="dialog" tabindex="-1" id="radix-«r11»" data-state="open" aria-hidden="true" data-aria-hidden="true" data-slot="sheet-content" aria-labelledby="radix-«r12»" aria-describedby="radix-«r13»" class="bg-sidebar fixed gap-4 shadow-lg inset-y-0 right-0 h-full border-l border-border animate-slideIn flex flex-col w-11/12 3xl:w-9/12 z-100"&gt;…&lt;/div&gt; subtree intercepts pointer events
+    - retrying click action
+      - waiting 500ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class="flex items-center justify-e</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>80s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-03T10:50:25.552760" elapsed="0.000663"/>
+</kw>
+<msg time="2025-09-03T10:50:25.602510" level="INFO">Switching context to context=defd735a-2daf-4718-9e19-64b6a6f87be8 in CURRENT</msg>
+<msg time="2025-09-03T10:50:25.631410" level="INFO">Successfully changed active context: context=defd735a-2daf-4718-9e19-64b6a6f87be8</msg>
+<msg time="2025-09-03T10:50:25.701180" level="INFO">Successfully closed Context</msg>
+<status status="FAIL" start="2025-09-03T10:50:01.950033" elapsed="23.605497">TimeoutError: locator.click: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('.gridRow:not(.opacity-50):not(.cursor-not-allowed)').nth(2)
+    - locator resolved to &lt;div class="gridRow bg-gridRowBGAlter hover:bg-gridHover "&gt;…&lt;/div&gt;
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class="flex justify-end  flex-1 px-1"&gt;R$ 27,00&lt;/div&gt; from &lt;div role="dialog" tabindex="-1" id="radix-«r11»" data-state="open" aria-hidden="true" data-aria-hidden="true" data-slot="sheet-content" aria-labelledby="radix-«r12»" aria-describedby="radix-«r13»" class="bg-sidebar fixed gap-4 shadow-lg inset-y-0 right-0 h-full border-l border-border animate-slideIn flex flex-col w-11/12 3xl:w-9/12 z-100"&gt;…&lt;/div&gt; subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    - waiting for element to be visible, enabled and stable
+    [ Message content over the limit has been removed. ]
+    - retrying click action
+      - waiting 500ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class="flex items-center justify-end flex-1 cursor-default"&gt;…&lt;/div&gt; from &lt;div role="dialog" tabindex="-1" id="radix-«r11»" data-state="open" aria-hidden="true" data-aria-hidden="true" data-slot="sheet-content" aria-labelledby="radix-«r12»" aria-describedby="radix-«r13»" class="bg-sidebar fixed gap-4 shadow-lg inset-y-0 right-0 h-full border-l border-border animate-slideIn flex flex-col w-11/12 3xl:w-9/12 z-100"&gt;…&lt;/div&gt; subtree intercepts pointer events
+    - retrying click action
+      - waiting 500ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class="flex items-center justify-e</status>
+</test>
+<status status="FAIL" start="2025-09-03T10:49:59.999467" elapsed="25.734669"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Venda" id="s1" pass="0" fail="1" skip="0">Venda</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
