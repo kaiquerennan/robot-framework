@@ -13,7 +13,6 @@ ${MODO_TESTE}    False
 Acessar cadastro de fornecedor
     Click    xpath=//button[@data-slot="button" and contains(., "Cadastros")]
     Click    xpath=//button[@data-slot="button" and contains(., "Fornecedores")]
-    Click    text=Novo Fornecedor
 
 Cadastrar fornecedor
     ${nome_fornecedor}    ChatGPT    Gere um nome simples de fornecedor brasileiro que faça sentido, com no mínimo 5 caracteres. Retorne apenas o nome do fornecedor
