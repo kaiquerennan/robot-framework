@@ -9,12 +9,14 @@ Library    BuiltIn
 *** Variables ***
 ${URL}    https://emc-frontend-hml.emcsistemas.com.br/login
 ${MODO_TESTE}    False
+${PAINEL_ATIVO}    css=[role="dialog"][data-state="open"]
 
 *** Keywords ***
 
 Acessar tela de venda
     Click         text=Vendas
-    Click         text=Nova venda
+    Click         text=Operações
+    Click    text=Nova Venda
     Sleep    2s
     Reload
     Click         css=#origemVenda
@@ -27,13 +29,18 @@ Acessar tela de venda
     Sleep         1s
     Click         xpath=(//div[contains(@class,"cursor-pointer")])[last()]
     Sleep    1s
-    ${rows}=    Get Elements    css=.gridRow:not(.opacity-50):not(.cursor-not-allowed)
-    ${num_rows}=    Get Length    ${rows}
-    Should Be True    ${num_rows} > 0    Nenhum produto habilitado encontrado
-    ${random_index}=    Evaluate    random.randint(0, ${num_rows} - 1)    modules=random
-    ${random_product_row}=    Set Variable    ${rows}[${random_index}]
-    Scroll To Element    ${random_product_row}
-    Wait For Elements State    ${random_product_row}    visible    5s
-    Wait For Elements State    ${random_product_row}    enabled    5s
-    Click    ${random_product_row}
-    Click    xpath=//div[contains(@class,"cursor-pointer") and normalize-space(text())="Confirmar" and not(contains(@class,"disabled"))]
+
+     ${produtos}    Get Elements    ${PAINEL_ATIVO} >> .gridRow:not(.cursor-not-allowed)
+    ${qtd_produtos}=    Get Length    ${produtos}    
+    Log to console    quantidade encontrada: ${qtd_produtos}
+    ${indice_aleatorio}    Evaluate    random.randint(0, ${qtd_produtos} - 1)    random
+    Log To Console    Índice aleatório escolhido: ${indice_aleatorio}
+    ${produto_aleatorio}    Set Variable    ${produtos}[${indice_aleatorio}]
+    Log To Console    produto aleatório escolhido: ${produto_aleatorio}
+    Scroll To Element    ${produto_aleatorio}
+    Click    ${produto_aleatorio}
+    Sleep    2s
+     
+
+
+
