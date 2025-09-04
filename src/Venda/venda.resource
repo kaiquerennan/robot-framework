@@ -30,17 +30,16 @@ Acessar tela de venda
     Click         xpath=(//div[contains(@class,"cursor-pointer")])[last()]
     Sleep    1s
 
-     ${produtos}    Get Elements    ${PAINEL_ATIVO} >> .gridRow:not(.cursor-not-allowed)
-    ${qtd_produtos}=    Get Length    ${produtos}    
+    ${produtos}=    Get Elements    css=div.flex.flex-col.w-3\\/4.h-full.overflow-y-auto > div.gridHeightSaleProd > div.gridListSaleProd > div.gridRow:not(.cursor-not-allowed):not(.opacity-50):visible
+    ${qtd_produtos}=    Get Length    ${produtos}
     Log to console    quantidade encontrada: ${qtd_produtos}
-    ${indice_aleatorio}    Evaluate    random.randint(0, ${qtd_produtos} - 1)    random
-    Log To Console    Índice aleatório escolhido: ${indice_aleatorio}
-    ${produto_aleatorio}    Set Variable    ${produtos}[${indice_aleatorio}]
-    Log To Console    produto aleatório escolhido: ${produto_aleatorio}
+    ${indice_aleatorio}=    Evaluate    random.randint(0, ${qtd_produtos} - 1)    random
+    ${produto_aleatorio}=    Set Variable    ${produtos}[${indice_aleatorio}]
     Scroll To Element    ${produto_aleatorio}
+    Wait For Elements State    ${produto_aleatorio}    visible    10s
+    Wait For Elements State    ${produto_aleatorio}    enabled    10s
     Click    ${produto_aleatorio}
-    Sleep    2s
-     
+
 
 
 

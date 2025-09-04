@@ -1,0 +1,90 @@
+{"level":30,"time":"2025-09-04T18:16:46.568Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Listening on 127.0.0.1:53959"}
+(node:13284) DeprecationWarning: Calling start() is no longer necessary. It can be safely omitted.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+{"level":30,"time":"2025-09-04T18:16:47.055Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2025-09-04T18:16:47.504Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Adding browser to stack: chromium, version: 139.0.7258.5"}
+{"level":30,"time":"2025-09-04T18:16:47.506Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2025-09-04T18:16:47.527Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Creating new context with options: {\"acceptDownloads\":true,\"bypassCSP\":false,\"forcedColors\":\"none\",\"ignoreHTTPSErrors\":true,\"javaScriptEnabled\":true,\"offline\":false,\"reducedMotion\":\"no-preference\",\"serviceWorkers\":\"allow\",\"viewport\":{\"height\":1080,\"width\":1920}}"}
+{"level":30,"time":"2025-09-04T18:16:47.527Z","pid":13284,"hostname":"HML-KAIQUE","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@67a0dd244b4f7501b1b89c9d2d88997f\"},\"headless\":false,\"_contextStack\":[],\"id\":\"browser=0ed5e4cd-caa2-45ac-b727-17cae5c511cd\"}"}
+{"level":30,"time":"2025-09-04T18:16:47.527Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Trace file: "}
+{"level":30,"time":"2025-09-04T18:16:47.507Z","pid":13284,"hostname":"HML-KAIQUE","msg":"End of node method newBrowser"}
+{"level":30,"time":"2025-09-04T18:16:47.526Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Start of node method newContext"}
+{"level":30,"time":"2025-09-04T18:16:47.610Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Setting default timeout for context context=d09ebff5-9fc1-45b9-abe6-22da1115559f to 10000"}
+{"level":30,"time":"2025-09-04T18:16:47.611Z","pid":13284,"hostname":"HML-KAIQUE","msg":"End of node method newContext"}
+{"level":30,"time":"2025-09-04T18:16:47.611Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Changed active context: context=d09ebff5-9fc1-45b9-abe6-22da1115559f"}
+{"level":30,"time":"2025-09-04T18:16:47.624Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Start of node method newPage"}
+{"level":30,"time":"2025-09-04T18:16:47.625Z","pid":13284,"hostname":"HML-KAIQUE","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@67a0dd244b4f7501b1b89c9d2d88997f\"},\"headless\":false,\"_contextStack\":[{\"id\":\"context=d09ebff5-9fc1-45b9-abe6-22da1115559f\",\"c\":{\"_type\":\"BrowserContext\",\"_guid\":\"browser-context@9ab05980e1ed564696f8e070014ccb9e\"},\"pageStack\":[],\"options\":{\"acceptDownloads\":true,\"bypassCSP\":false,\"forcedColors\":\"none\",\"ignoreHTTPSErrors\":true,\"javaScriptEnabled\":true,\"offline\":false,\"reducedMotion\":\"no-preference\",\"serviceWorkers\":\"allow\",\"viewport\":{\"height\":1080,\"width\":1920}},\"traceFile\":\"\"}],\"id\":\"browser=0ed5e4cd-caa2-45ac-b727-17cae5c511cd\"}"}
+{"level":30,"time":"2025-09-04T18:16:48.104Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Video path: undefined"}
+{"level":30,"time":"2025-09-04T18:16:48.104Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Changed active page"}
+{"level":30,"time":"2025-09-04T18:16:48.651Z","pid":13284,"hostname":"HML-KAIQUE","msg":"End of node method newPage"}
+{"level":30,"time":"2025-09-04T18:16:48.698Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Start of node method fillText"}
+{"level":30,"time":"2025-09-04T18:16:48.699Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Strict mode is enabled, find Locator with css=input[placeholder=\"Nome de usuário ou email\"] in page."}
+{"level":30,"time":"2025-09-04T18:16:48.883Z","pid":13284,"hostname":"HML-KAIQUE","msg":"End of node method fillText"}
+{"level":30,"time":"2025-09-04T18:16:48.899Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Start of node method fillText"}
+{"level":30,"time":"2025-09-04T18:16:48.899Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Strict mode is enabled, find Locator with css=input[placeholder=\"Sua senha\"] in page."}
+{"level":30,"time":"2025-09-04T18:16:48.927Z","pid":13284,"hostname":"HML-KAIQUE","msg":"End of node method fillText"}
+{"level":30,"time":"2025-09-04T18:16:48.940Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Start of node method click"}
+{"level":30,"time":"2025-09-04T18:16:48.941Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Strict mode is enabled, find Locator with text=Entrar in page."}
+{"level":30,"time":"2025-09-04T18:16:49.038Z","pid":13284,"hostname":"HML-KAIQUE","msg":"End of node method click"}
+{"level":30,"time":"2025-09-04T18:16:49.050Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-09-04T18:16:49.051Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Strict mode is enabled, find Locator with xpath=//span[text()=\"Dashboard\"] in page."}
+{"level":30,"time":"2025-09-04T18:16:49.936Z","pid":13284,"hostname":"HML-KAIQUE","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-09-04T18:16:50.062Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Start of node method click"}
+{"level":30,"time":"2025-09-04T18:16:50.062Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Strict mode is enabled, find Locator with text=Vendas in page."}
+{"level":30,"time":"2025-09-04T18:16:50.566Z","pid":13284,"hostname":"HML-KAIQUE","msg":"End of node method click"}
+{"level":30,"time":"2025-09-04T18:16:50.582Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Start of node method click"}
+{"level":30,"time":"2025-09-04T18:16:50.582Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Strict mode is enabled, find Locator with text=Operações in page."}
+{"level":30,"time":"2025-09-04T18:16:51.784Z","pid":13284,"hostname":"HML-KAIQUE","msg":"End of node method click"}
+{"level":30,"time":"2025-09-04T18:16:51.798Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Start of node method click"}
+{"level":30,"time":"2025-09-04T18:16:51.798Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Strict mode is enabled, find Locator with text=Nova Venda in page."}
+{"level":30,"time":"2025-09-04T18:16:51.998Z","pid":13284,"hostname":"HML-KAIQUE","msg":"End of node method click"}
+{"level":30,"time":"2025-09-04T18:16:54.008Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Reload page with options: {\"waitUntil\": \"load\"}"}
+{"level":30,"time":"2025-09-04T18:16:54.377Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Start of node method click"}
+{"level":30,"time":"2025-09-04T18:16:54.377Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Strict mode is enabled, find Locator with css=#origemVenda in page."}
+{"level":30,"time":"2025-09-04T18:16:54.790Z","pid":13284,"hostname":"HML-KAIQUE","msg":"End of node method click"}
+{"level":30,"time":"2025-09-04T18:16:54.800Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Start of node method click"}
+{"level":30,"time":"2025-09-04T18:16:54.801Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Strict mode is enabled, find Locator with xpath=(//div[@role=\"option\"])[2] in page."}
+{"level":30,"time":"2025-09-04T18:16:54.955Z","pid":13284,"hostname":"HML-KAIQUE","msg":"End of node method click"}
+{"level":30,"time":"2025-09-04T18:16:54.962Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Start of node method click"}
+{"level":30,"time":"2025-09-04T18:16:54.962Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Strict mode is enabled, find Locator with xpath=//body in page."}
+{"level":30,"time":"2025-09-04T18:16:55.017Z","pid":13284,"hostname":"HML-KAIQUE","msg":"End of node method click"}
+{"level":30,"time":"2025-09-04T18:16:55.529Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Start of node method press"}
+{"level":30,"time":"2025-09-04T18:16:55.530Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Strict mode is enabled, find Locator with css=input[placeholder=\"Código\"] in page."}
+{"level":30,"time":"2025-09-04T18:16:55.567Z","pid":13284,"hostname":"HML-KAIQUE","msg":"End of node method press"}
+{"level":30,"time":"2025-09-04T18:16:56.577Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Start of node method click"}
+{"level":30,"time":"2025-09-04T18:16:56.577Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Strict mode is enabled, find Locator with xpath=/html/body/div/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/div[3]/button in page."}
+{"level":30,"time":"2025-09-04T18:16:56.667Z","pid":13284,"hostname":"HML-KAIQUE","msg":"End of node method click"}
+{"level":30,"time":"2025-09-04T18:16:57.681Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Start of node method click"}
+{"level":30,"time":"2025-09-04T18:16:57.681Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Strict mode is enabled, find Locator with xpath=(//div[contains(@class,\"cursor-pointer\")])[last()] in page."}
+{"level":30,"time":"2025-09-04T18:16:57.871Z","pid":13284,"hostname":"HML-KAIQUE","msg":"End of node method click"}
+{"level":30,"time":"2025-09-04T18:16:58.885Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Start of node method getElements"}
+{"level":30,"time":"2025-09-04T18:16:58.885Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Strict mode is disabled, return Locator: css=div.flex.flex-col.w-3\\/4.h-full.overflow-y-auto > div.gridHeightSaleProd > div.gridListSaleProd > div.gridRow:not(.cursor-not-allowed):not(.opacity-50):visible in page."}
+{"level":30,"time":"2025-09-04T18:16:58.886Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Wait element to reach attached state."}
+{"level":30,"time":"2025-09-04T18:16:58.910Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Found 8 elements."}
+{"level":30,"time":"2025-09-04T18:16:58.915Z","pid":13284,"hostname":"HML-KAIQUE","msg":"End of node method getElements"}
+{"level":30,"time":"2025-09-04T18:16:58.941Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Start of node method scrollToElement"}
+{"level":30,"time":"2025-09-04T18:16:58.941Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Strict mode is enabled, find Locator with css=div.flex.flex-col.w-3\\/4.h-full.overflow-y-auto > div.gridHeightSaleProd > div.gridListSaleProd > div.gridRow:not(.cursor-not-allowed):not(.opacity-50):visible >> nth=5 in page."}
+{"level":30,"time":"2025-09-04T18:16:58.996Z","pid":13284,"hostname":"HML-KAIQUE","msg":"End of node method scrollToElement"}
+{"level":30,"time":"2025-09-04T18:16:59.004Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-09-04T18:16:59.004Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Strict mode is enabled, find Locator with css=div.flex.flex-col.w-3\\/4.h-full.overflow-y-auto > div.gridHeightSaleProd > div.gridListSaleProd > div.gridRow:not(.cursor-not-allowed):not(.opacity-50):visible >> nth=5 in page."}
+{"level":30,"time":"2025-09-04T18:16:59.017Z","pid":13284,"hostname":"HML-KAIQUE","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-09-04T18:16:59.026Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-09-04T18:16:59.026Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Strict mode is enabled, find Locator with css=div.flex.flex-col.w-3\\/4.h-full.overflow-y-auto > div.gridHeightSaleProd > div.gridListSaleProd > div.gridRow:not(.cursor-not-allowed):not(.opacity-50):visible >> nth=5 in page."}
+{"level":30,"time":"2025-09-04T18:16:59.050Z","pid":13284,"hostname":"HML-KAIQUE","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-09-04T18:16:59.058Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Strict mode is enabled, find Locator with css=div.flex.flex-col.w-3\\/4.h-full.overflow-y-auto > div.gridHeightSaleProd > div.gridListSaleProd > div.gridRow:not(.cursor-not-allowed):not(.opacity-50):visible >> nth=5 in page."}
+{"level":30,"time":"2025-09-04T18:16:59.058Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Start of node method click"}
+{"level":30,"time":"2025-09-04T18:16:59.131Z","pid":13284,"hostname":"HML-KAIQUE","msg":"End of node method click"}
+{"level":30,"time":"2025-09-04T18:17:02.479Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Removed page=8a1e98a4-1a93-4cbf-8f6a-642c96017de3 from context=d09ebff5-9fc1-45b9-abe6-22da1115559f page stack"}
+{"level":30,"time":"2025-09-04T18:17:04.897Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-09-04T18:17:04.898Z","pid":13284,"hostname":"HML-KAIQUE","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-09-04T18:17:04.903Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-09-04T18:17:04.903Z","pid":13284,"hostname":"HML-KAIQUE","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-09-04T18:17:04.910Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-09-04T18:17:04.910Z","pid":13284,"hostname":"HML-KAIQUE","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-09-04T18:17:04.919Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-09-04T18:17:04.919Z","pid":13284,"hostname":"HML-KAIQUE","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-09-04T18:17:04.927Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Changed active context: context=d09ebff5-9fc1-45b9-abe6-22da1115559f"}
+{"level":30,"time":"2025-09-04T18:17:04.930Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Start of node method closeContext"}
+{"level":30,"time":"2025-09-04T18:17:04.931Z","pid":13284,"hostname":"HML-KAIQUE","msg":"End of node method closeContext"}
+{"level":30,"time":"2025-09-04T18:17:05.042Z","pid":13284,"hostname":"HML-KAIQUE","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-09-04T18:17:05.043Z","pid":13284,"hostname":"HML-KAIQUE","msg":"End of node method getBrowserCatalog"}
