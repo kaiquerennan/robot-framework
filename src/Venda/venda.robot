@@ -8,4 +8,4 @@ Acessar tela de venda
     Abrir navegador
     Preencher Login
     Acessar tela de venda
-    Sleep    80s
+    Sleep    5s
