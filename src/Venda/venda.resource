@@ -46,12 +46,11 @@ Preencher vendedor
 
 Realizar Operação
 
-    ${numero}=    Evaluate    random.randint(1, 10)    random
+    ${numero}=    Evaluate    random.randint(100, 100)    random
     Log To Console    quantidade: ${numero}
     FOR    ${i}    IN RANGE    1    ${numero}+1
     Click         xpath=/html/body/div/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/div[3]/button
     Click         xpath=(//div[contains(@class,"cursor-pointer")])[last()]
-    ${numero}=    Evaluate    random.randint(1, 10)    random
     ${produtos}=    Get Elements    xpath=(//div[contains(@class,'gridListSaleProd')])[2]//div[contains(@class,'gridRow') and not(contains(@class,'cursor-not-allowed'))]
     ${qtd_produtos}=    Get Length    ${produtos}
     Log to console    quantidade encontrada: ${qtd_produtos}

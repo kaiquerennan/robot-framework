@@ -46,3 +46,8 @@ Cadastrar Telefone
     Click    css=#ddd
     Click    xpath=(//div[@role="option"])[2]
     Click    xpath=//*[@id="radix-«r3j»"]/div/div[2]/div[2]/div[2]
+
+Acessar Operações
+    Click         text=Vendas
+    Click         text=Operações
+    Sleep    0.5s
