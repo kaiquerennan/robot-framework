@@ -16,11 +16,29 @@ ${PAINEL_ATIVO}    css=[role="dialog"][data-state="open"]
 Acessar tela de venda
     Click         text=Vendas
     Click         text=Operações
-    Click    text=Nova Venda
-    Sleep    2s
+    Click        text=Nova Venda
+    Sleep    1s
+
+Escolher venda
+    Click         css=#origemVenda
+    Click         xpath=(//div[@role="option"])[1]
+
+Escolher pré-venda
     Reload
     Click         css=#origemVenda
     Click         xpath=(//div[@role="option"])[2]
+
+Escolher pedido
+    Click         css=#origemVenda
+    Click         xpath=(//div[@role="option"])[3]
+
+Escolher orçamento
+    Click         css=#origemVenda
+    Click         xpath=(//div[@role="option"])[4]
+
+
+Realizar Operação
+
     Click         xpath=//body
     Sleep         0.5s
     Press Keys    css=input[placeholder="Código"]   3 
@@ -30,15 +48,14 @@ Acessar tela de venda
     Click         xpath=(//div[contains(@class,"cursor-pointer")])[last()]
     Sleep    1s
 
-    ${produtos}=    Get Elements    css=div.flex.flex-col.w-3\\/4.h-full.overflow-y-auto > div.gridHeightSaleProd > div.gridListSaleProd > div.gridRow:not(.cursor-not-allowed):visible
+    ${produtos}=    Get Elements    xpath=(//div[contains(@class,'gridListSaleProd')])[2]//div[contains(@class,'gridRow') and not(contains(@class,'cursor-not-allowed'))]
     ${qtd_produtos}=    Get Length    ${produtos}
     Log to console    quantidade encontrada: ${qtd_produtos}
     ${indice_aleatorio}=    Evaluate    random.randint(0, ${qtd_produtos} - 1)    random
     ${produto_aleatorio}=    Set Variable    ${produtos}[${indice_aleatorio}]
     Wait For Elements State    ${produto_aleatorio}    visible    10s
     Wait For Elements State    ${produto_aleatorio}    enabled    10s
+    Log To Console    produto: ${produto_aleatorio}
     Click    ${produto_aleatorio}
-
-
-
+    Click    text=Confirmar >> nth=1
 
