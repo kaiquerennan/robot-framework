@@ -4,20 +4,20 @@ Resource    ../Resources Genericos/generico.resource
 
 *** Test Cases ***
 
-Realizar pré-venda
-    Abrir navegador
-    Preencher Login
-    Acessar tela de venda
-    Escolher pré-venda
-    Preencher vendedor
-    Realizar Operação
-
-
 Realizar venda
     Abrir navegador
     Preencher Login
     Acessar tela de venda
     Escolher venda
+    Preencher vendedor
+    Realizar Operação
+
+
+Realizar orçamento
+    Abrir navegador
+    Preencher Login
+    Acessar tela de venda
+    Escolher pré-venda
     Preencher vendedor
     Realizar Operação
 
