@@ -31,5 +31,24 @@ Excluir Vendas
     Click    text=Sim, excluir
     Sleep    0.5s
     END
-    
+    Close Browser
+
+Excluir Contas bancárias
+    Set Browser Timeout    0.5s
+    FOR    ${i}    IN RANGE    1    1000
+    ${contas}=    Get Elements    xpath=(//div[contains(@class,'gridRow') and not(contains(.,'Nenhum registro encontrado'))])    
+    ${qtd_contas}=    Get Length    ${contas}
+    Log To Console    quantidade de contas: ${qtd_contas}
+        IF    ${qtd_contas} == 0
+            Exit For Loop
+            Close Browser
+        END
+    ${indice_aleatorio}=    Evaluate    random.randint(0, ${qtd_contas} - 1)    random
+    ${venda_aleatoria}=    Set Variable    ${contas}[${indice_aleatorio}]
+    Click    ${venda_aleatoria}
+    Click    text=Excluir
+    Sleep    0.3s
+    Click    text=Continuar
+    Sleep    1s
+    END
     Close Browser

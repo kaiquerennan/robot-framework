@@ -8,3 +8,10 @@ Excluir Vendas
     Preencher Login
     Acessar Operações
     Excluir Vendas
+
+Excluir Contas bancárias
+    Abrir navegador
+    Preencher Login
+    Click    text=Finanças
+    Click    text=Contas bancárias
+    Excluir Contas bancárias
