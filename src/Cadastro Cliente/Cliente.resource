@@ -13,20 +13,20 @@ Acessar cadastro de cliente
     Click    text=Novo Cliente
 
 Cadastrar cliente
-    ${f_ou_j}=    ChatGPT    Escolha aleatoriamente entre J ou F. Responda apenas com J ou F. As chances deverão ser as mesmas para ambas as opções
+    ${f_ou_j}=    Evaluate    random.randint(1, 2)    random
     Log To Console    ${f_ou_j}
     Click    css=button#natureza
     
-    IF    '${f_ou_j}' == 'F'
+    IF    '${f_ou_j}' == '1'
         Click    xpath=//div[@role='option' and contains(., 'Física')]
         ${documento}=    Gerar CPF Valido
         Fill text    css=input[placeholder="Informe o CPF"]    ${documento}
         ${nome}=     ChatGPT    Gere um nome brasileiro simples com no mínimo 5 caracteres. Retorne apenas o nome, sem mais nada
         Fill Text    css=input[placeholder="Nome"]    ${nome}
         Fill Text    css=input[placeholder="dd/mm/aaaa"]    23/05/2024
-        ${sexo}=     ChatGPT    Gere um sexo (masculino ou feminino). Retorne M ou F.
+        ${sexo}=     Evaluate    random.randint(1, 2)    random
         Click    css=button#sexo
-        IF    '${sexo}' == 'M'
+        IF    '${sexo}' == '1'
             Click    xpath=//div[@role='option' and contains(., 'Masculino')]
         ELSE
             Click    xpath=//div[@role='option' and contains(., 'Feminino')]
