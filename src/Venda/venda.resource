@@ -45,7 +45,6 @@ Preencher vendedor
     
 
 Realizar Operação
-
     ${numero}=    Evaluate    random.randint(100, 150)    random
     Log To Console    quantidade: ${numero}
     FOR    ${i}    IN RANGE    1    ${numero}+1
