@@ -31,4 +31,5 @@ Excluir Vendas
     Click    text=Sim, excluir
     Sleep    0.5s
     END
+    
     Close Browser
