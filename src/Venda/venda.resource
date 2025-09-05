@@ -46,7 +46,7 @@ Preencher vendedor
 
 Realizar Operação
 
-    ${numero}=    Evaluate    random.randint(100, 100)    random
+    ${numero}=    Evaluate    random.randint(100, 150)    random
     Log To Console    quantidade: ${numero}
     FOR    ${i}    IN RANGE    1    ${numero}+1
     Click         xpath=/html/body/div/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/div[3]/button
