@@ -12,7 +12,6 @@ Validar se baixou estoque
     Preencher Login
     Acessar tela de estoque
     Escolher algum produto
-    Sleep    1.5s
     Acessar tela de venda
     Escolher venda
     Preencher vendedor
