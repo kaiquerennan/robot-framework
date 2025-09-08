@@ -47,7 +47,6 @@ Realizar pre-venda com cliente
 
 
 Realizar pedido sem cliente
-    ${valor}=    Get Value From User    Digite um valor:
     Abrir navegador
     Preencher Login
     Acessar tela de venda
@@ -83,5 +82,4 @@ Realizar orçamento com cliente
     Preencher vendedor
     Escolher cliente
     Realizar Operação
-
-
+    

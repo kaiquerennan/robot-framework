@@ -60,7 +60,7 @@ Escolher cliente
 
 
 Realizar Operação
-    ${numero}=    Evaluate    random.randint(1, 20)    random
+    ${numero}=    Evaluate    random.randint(8, 8)    random
     Log To Console    quantidade: ${numero}
     FOR    ${i}    IN RANGE    1    ${numero}+1
     Click         xpath=/html/body/div/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/div[3]/button
@@ -77,7 +77,6 @@ Realizar Operação
     Log To Console    quantidade: ${quantidade}
     Fill Text    xpath=(//input[@id='quantidade'])[last()]    ${quantidade}
     END
-
     Click    text=Salvar 
     Sleep    1.5s
 
