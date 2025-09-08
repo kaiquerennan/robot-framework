@@ -41,8 +41,23 @@ Escolher orçamento
 Preencher vendedor
     Click         xpath=//body
     Sleep         0.5s
-    Press Keys    css=input[placeholder="Código"]   3 
-    
+    Press Keys    css=input[placeholder="Código"]   3
+    Sleep    0.3s 
+
+
+Escolher cliente
+    Click         xpath=(//div[contains(@class,"cursor-pointer")])[2]
+    ${numero}=   Evaluate    random.randint(1, 20)    random
+    Sleep    0.1s
+    ${clientes}=    Get Elements    xpath=//div[contains(@class,'gridRow')]
+    ${qtd_clientes}=    Get Length    ${clientes}
+    Log to console    quantidade encontrada: ${qtd_clientes}
+    ${indice_aleatorio}=    Evaluate    random.randint(0, ${qtd_clientes} - 1)    random
+    ${cliente_aleatorio}=    Set Variable    ${clientes}[${indice_aleatorio}]
+    Log To Console    cliente: ${cliente_aleatorio}
+    Click    ${cliente_aleatorio}
+
+
 
 Realizar Operação
     ${numero}=    Evaluate    random.randint(1, 20)    random
@@ -58,11 +73,14 @@ Realizar Operação
     Log To Console    produto: ${produto_aleatorio}
     Click    ${produto_aleatorio}
     Click    text=Confirmar >> nth=1
-    Sleep    0.1s
+    Sleep    0.4s
     Fill Text    xpath=(//input[@id='quantidade'])[last()]    ${indice_aleatorio}
-    Sleep    0.1s
     END
-    Click    text=Salvar
-    
+
+    Click    text=Salvar 
     Sleep    1.5s
 
+
+
+
+    
