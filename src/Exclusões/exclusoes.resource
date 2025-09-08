@@ -27,9 +27,9 @@ Excluir Vendas
     ${venda_aleatoria}=    Set Variable    ${vendas}[${indice_aleatorio}]
     Click    ${venda_aleatoria}
     Click    text=Excluir
-    Sleep    0.3s
+    Sleep    0.1s
     Click    text=Sim, excluir
-    Sleep    0.8s
+    Sleep    0.65s
     END
     Close Browser
 
@@ -78,7 +78,7 @@ Excluir Parcerias de vendas
 
 Excluir Clientes
     Set Browser Timeout    0.5s
-    FOR    ${i}    IN RANGE    1    1000
+    FOR    ${i}    IN RANGE    1    20
     ${clientes}=    Get Elements    xpath=(//div[contains(@class,'gridRow') and not(contains(.,'Nenhum registro encontrado'))])    
     ${qtd_clientes}=    Get Length    ${clientes}
     Log To Console    quantidade de clientes: ${qtd_clientes}

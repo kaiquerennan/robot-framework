@@ -1,7 +1,8 @@
 *** Settings ***
 Resource    venda.resource
 Resource    ../Resources Genericos/generico.resource
-
+Library    String
+Library    Dialogs
 *** Test Cases ***
 
 
@@ -46,12 +47,14 @@ Realizar pre-venda com cliente
 
 
 Realizar pedido sem cliente
+    ${valor}=    Get Value From User    Digite um valor:
     Abrir navegador
     Preencher Login
     Acessar tela de venda
     Escolher pedido
     Preencher vendedor
     Realizar Operação
+    
 
 Realizar pedido com cliente
     Abrir navegador
