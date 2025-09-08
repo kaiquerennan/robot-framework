@@ -17,6 +17,7 @@ Validar se baixou estoque
     Escolher venda
     Preencher vendedor
     Vender produto escolhido
+    Comparar estoque
 
     
     

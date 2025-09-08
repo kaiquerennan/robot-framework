@@ -5,12 +5,12 @@ Library    Collections
 
 
 *** Variables ***
-${URL}    https://emc-frontend-hml.emcsistemas.com.br/login
+${URL}    https://emc-frontend-hml.emcsistemas.com.br/
 ${MODO_TESTE}    False
 
 *** Keywords ***
 Acessar tela de estoque
-    Click         text=Estoque
+    Click         text=Estoque >> nth=0
     Click         text=Estoque de produtos
     Sleep    0.5s
     Reload
@@ -38,4 +38,15 @@ Vender produto escolhido
     Click   xpath=(//div[contains(@class,"cursor-pointer")])[last()]
     Sleep    0.5s
     Click    xpath=(//div[contains(@class,'gridListSaleProd')])[2]//div[contains(@class,'gridRow') and .//div[contains(@class,'flex') and contains(@class,'justify-start') and contains(@class,'px-1') and text()=${PRODUTO_CODIGO}]]
-    Sleep    5s
+    Click    text=Confirmar >> nth=1
+    ${quantidade}=    Evaluate    random.randint(1, 5)    random
+    Log To Console    quantidade: ${quantidade}
+    Fill Text    xpath=(//input[@id='quantidade'])[last()]    ${quantidade}
+    Click    text=Salvar 
+
+Comparar estoque 
+    Acessar tela de estoque
+    ${novo_estoque}=    Browser.Get Text    ${PRODUTO} >> css=div:nth-child(3)
+    Log To Console    Estoque antigo: ${PRODUTO_ESTOQUE}
+    Log To Console    Novo estoque: \\n${novo_estoque}
+    Should Not Be Equal As Integers    ${novo_estoque}    ${PRODUTO_ESTOQUE}    Estoque não deveria ser igual!
