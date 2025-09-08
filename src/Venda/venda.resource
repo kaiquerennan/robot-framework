@@ -60,7 +60,7 @@ Escolher cliente
 
 
 Realizar Operação
-    ${numero}=    Evaluate    random.randint(1, 20)    random
+    ${numero}=    Evaluate    random.randint(3, 3)    random
     Log To Console    quantidade: ${numero}
     FOR    ${i}    IN RANGE    1    ${numero}+1
     Click         xpath=/html/body/div/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/div[3]/button
@@ -73,7 +73,7 @@ Realizar Operação
     Log To Console    produto: ${produto_aleatorio}
     Click    ${produto_aleatorio}
     Click    text=Confirmar >> nth=1
-    Sleep    0.4s
+    Sleep    0.6s
     Fill Text    xpath=(//input[@id='quantidade'])[last()]    ${indice_aleatorio}
     END
 

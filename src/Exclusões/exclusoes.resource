@@ -20,8 +20,8 @@ Excluir Vendas
     ${qtd_vendas}=    Get Length    ${vendas}
     Log To Console    quantidade de vendas: ${qtd_vendas}
         IF    ${qtd_vendas} == 0
-            Exit For Loop
-            Close Browser
+            Log To Console      Todas vendas excluídas! 
+            Exit For Loop   
         END
     ${indice_aleatorio}=    Evaluate    random.randint(0, ${qtd_vendas} - 1)    random
     ${venda_aleatoria}=    Set Variable    ${vendas}[${indice_aleatorio}]
@@ -29,7 +29,7 @@ Excluir Vendas
     Click    text=Excluir
     Sleep    0.3s
     Click    text=Sim, excluir
-    Sleep    0.5s
+    Sleep    0.8s
     END
     Close Browser
 
