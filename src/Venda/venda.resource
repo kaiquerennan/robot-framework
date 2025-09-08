@@ -45,7 +45,7 @@ Preencher vendedor
     
 
 Realizar Operação
-    ${numero}=    Evaluate    random.randint(100, 150)    random
+    ${numero}=    Evaluate    random.randint(1, 20)    random
     Log To Console    quantidade: ${numero}
     FOR    ${i}    IN RANGE    1    ${numero}+1
     Click         xpath=/html/body/div/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/div[3]/button
@@ -55,14 +55,14 @@ Realizar Operação
     Log to console    quantidade encontrada: ${qtd_produtos}
     ${indice_aleatorio}=    Evaluate    random.randint(0, ${qtd_produtos} - 1)    random
     ${produto_aleatorio}=    Set Variable    ${produtos}[${indice_aleatorio}]
-    Wait For Elements State    ${produto_aleatorio}    visible    10s
-    Wait For Elements State    ${produto_aleatorio}    enabled    10s
     Log To Console    produto: ${produto_aleatorio}
     Click    ${produto_aleatorio}
     Click    text=Confirmar >> nth=1
-    Sleep    0.3s
+    Sleep    0.1s
+    Fill Text    xpath=(//input[@id='quantidade'])[last()]    ${indice_aleatorio}
+    Sleep    0.1s
     END
     Click    text=Salvar
     
     Sleep    1.5s
-    
+

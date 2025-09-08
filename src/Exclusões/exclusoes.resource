@@ -52,3 +52,26 @@ Excluir Contas bancárias
     Sleep    1s
     END
     Close Browser
+
+
+
+Excluir Parcerias de vendas
+    Set Browser Timeout    0.5s
+    FOR    ${i}    IN RANGE    1    1000
+    ${parcerias}=    Get Elements    xpath=(//div[contains(@class,'gridRow') and not(contains(.,'Nenhum registro encontrado'))])    
+    ${qtd_parcerias}=    Get Length    ${parcerias}
+    Log To Console    quantidade de parcerias: ${qtd_parcerias}
+        IF    ${qtd_parcerias} == 0
+            Log to console     Todas parcerias excluídas!
+            Exit For Loop
+            Close Browser
+        END
+    ${indice_aleatorio}=    Evaluate    random.randint(0, ${qtd_parcerias} - 1)    random
+    ${parceria_aleatoria}=    Set Variable    ${parcerias}[${indice_aleatorio}]
+    Click    ${parceria_aleatoria}
+    Click    text=Excluir
+    Sleep    0.3s
+    Click    text=Continuar
+    Sleep    1s
+    END
+    Close Browser
