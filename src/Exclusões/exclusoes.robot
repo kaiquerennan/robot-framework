@@ -25,3 +25,11 @@ Excluir Parcerias de vendas
     Click    text=Vendas
     Click    text=Parcerias de vendas
     Excluir Parcerias de vendas
+
+Excluir Clientes
+    #isso exclui TODOS os clientes
+    Abrir navegador
+    Preencher Login
+    Click    text=Cadastros
+    Click    text=Clientes
+    Excluir Clientes

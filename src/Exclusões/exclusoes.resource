@@ -75,3 +75,23 @@ Excluir Parcerias de vendas
     Sleep    1s
     END
     Close Browser
+
+Excluir Clientes
+    Set Browser Timeout    0.5s
+    FOR    ${i}    IN RANGE    1    1000
+    ${clientes}=    Get Elements    xpath=(//div[contains(@class,'gridRow') and not(contains(.,'Nenhum registro encontrado'))])    
+    ${qtd_clientes}=    Get Length    ${clientes}
+    Log To Console    quantidade de clientes: ${qtd_clientes}
+        IF    ${qtd_clientes} == 0
+            Exit For Loop
+            Close Browser
+        END
+    ${indice_aleatorio}=    Evaluate    random.randint(0, ${qtd_clientes} - 1)    random
+    ${cliente_aleatorio}=    Set Variable    ${clientes}[${indice_aleatorio}]
+    Click    ${cliente_aleatorio}
+    Click    text=Excluir
+    Sleep    0.3s
+    Click    text=Sim, excluir
+    Sleep    0.5s
+    END
+    Close Browser
