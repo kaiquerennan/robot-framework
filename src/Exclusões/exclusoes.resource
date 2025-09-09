@@ -2,7 +2,6 @@
 Library    Browser
 Library    Collections
 Library    OperatingSystem
-Library    AppiumLibrary
 Library    BuiltIn
 
 *** Variables ***

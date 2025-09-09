@@ -22,8 +22,8 @@ Escolher algum produto
     ${indice_aleatorio}=    Evaluate    random.randint(0, ${qtd_produtos} - 1)    random
     ${produto_aleatorio}=    Set Variable    ${produtos}[${indice_aleatorio}]
     Log To Console    produto: ${produto_aleatorio}
-    ${codigo_produto}=    Browser.Get Text    ${produto_aleatorio} >> css=div.flex.justify-start.flex-1.px-1:first-child
-    ${estoque_produto}=    Browser.Get Text    ${produto_aleatorio} >> css=div:nth-child(3)
+    ${codigo_produto}=     Get Text    ${produto_aleatorio} >> css=div.flex.justify-start.flex-1.px-1:first-child
+    ${estoque_produto}=    Get Text    ${produto_aleatorio} >> css=div:nth-child(3)
     
     Log To Console    Produto: ${produto_aleatorio}
     Log To Console    Código: ${codigo_produto}
@@ -43,10 +43,14 @@ Vender produto escolhido
     Log To Console    quantidade: ${quantidade}
     Fill Text    xpath=(//input[@id='quantidade'])[last()]    ${quantidade}
     Click    text=Salvar 
+    Set Global Variable    ${quantidade}    ${quantidade}
 
 Comparar estoque 
     Acessar tela de estoque
-    ${novo_estoque}=    Browser.Get Text    ${PRODUTO} >> css=div:nth-child(3)
+    ${novo_estoque}=    Get Text    ${PRODUTO} >> css=div:nth-child(3)
+    Sleep    1s
     Log To Console    Estoque antigo: ${PRODUTO_ESTOQUE}
-    Log To Console    Novo estoque: \\n${novo_estoque}
-    Should Not Be Equal As Integers    ${novo_estoque}    ${PRODUTO_ESTOQUE}    Estoque não deveria ser igual!
+    Log To Console    \n
+    Log To Console    Novo estoque: ${novo_estoque}
+    ${estoque_esperado}=    Evaluate    int(${PRODUTO_ESTOQUE}) - int(${quantidade})
+    Should Be Equal As Integers    ${novo_estoque}    ${estoque_esperado}    Estoque não foi atualizado corretamente!

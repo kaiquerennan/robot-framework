@@ -3,7 +3,6 @@ Library    ../../libs/ChatGPTLibrary.py    api_key=sk-proj-V9WiVjmuq-8StRy13hD35
 Library    Browser
 Library    Collections
 Library    OperatingSystem
-Library    AppiumLibrary
 Library    BuiltIn
 
 *** Variables ***

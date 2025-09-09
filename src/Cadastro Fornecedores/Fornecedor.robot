@@ -1,7 +1,6 @@
 *** Settings ***
 Resource    Fornecedor.resource
 Resource   ../Resources Genericos/generico.resource
-Library    AppiumLibrary
 
 *** Test Cases ***
 Cadastrar Fornecedor
