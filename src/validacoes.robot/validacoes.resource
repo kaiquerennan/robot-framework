@@ -48,7 +48,6 @@ Vender produto escolhido
 Comparar estoque 
     Acessar tela de estoque
     ${novo_estoque}=    Get Text    ${PRODUTO} >> css=div:nth-child(3)
-    Sleep    1s
     Log To Console    Estoque antigo: ${PRODUTO_ESTOQUE}
     Log To Console    \n
     Log To Console    Novo estoque: ${novo_estoque}

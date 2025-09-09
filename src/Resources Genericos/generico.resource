@@ -51,3 +51,10 @@ Acessar Operações
     Click         text=Vendas
     Click         text=Operações
     Sleep    0.5s
+
+
+Logar com usuário restrito
+    Fill Text    css=input[placeholder="Nome de usuário ou email"]    kaiqueteste
+    Fill Text    css=input[placeholder="Sua senha"]    123456
+    Click    text=Entrar
+    Wait For Elements State    xpath=//span[text()="Dashboard"]    visible    timeout=15s
