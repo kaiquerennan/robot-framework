@@ -31,4 +31,7 @@ Tentar salvar sem permissão
 
 
     
-    
+Tentar inserir sem permissão
+    Abrir navegador    
+    Logar com usuário restrito
+    Validar botão Inserir desabilitado

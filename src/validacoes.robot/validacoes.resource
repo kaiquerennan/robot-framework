@@ -61,7 +61,7 @@ Validar botão Excluir desabilitado
     Reload
     Click    text=Cadastros >> nth=1
     Sleep    0.5s
-    FOR    ${i}    IN RANGE    1    7
+    FOR    ${i}    IN RANGE    1    9
           IF    '${i}' == '5'
         ${i}=    Evaluate    ${i} + 1
         END
@@ -83,7 +83,7 @@ Validar botão Salvar desabilitado
     Reload
     Click    text=Cadastros >> nth=1
     Sleep    0.5s
-    FOR    ${i}    IN RANGE    1    7
+    FOR    ${i}    IN RANGE    1    9
         Click    xpath=(//nav//button[@data-slot='button'])[${i}]
         ${itens}=    Get Elements    xpath=//div[contains(@class,'gridRow')]
         ${qtd_itens}=    Get Length    ${itens}
@@ -93,6 +93,18 @@ Validar botão Salvar desabilitado
         click    ${item_aleatorio}
         Wait For Elements State    xpath=//button[text()='Salvar']    visible    timeout=5s
         ${estado}=    Get Element States    xpath=//button[text()='Salvar']
+        Should Contain    ${estado}    disabled
+        Sleep    0.5s
+    END
+
+Validar botão Inserir desabilitado
+    Reload
+    Click    text=Cadastros >> nth=1
+    Sleep    0.5s
+    FOR    ${i}    IN RANGE    1    9
+        Click    xpath=(//nav//button[@data-slot='button'])[${i}]
+        Wait For Elements State    text=Nov    visible    timeout=5s
+        ${estado}=    Get Element States    text=Nov
         Should Contain    ${estado}    disabled
         Sleep    0.5s
     END
