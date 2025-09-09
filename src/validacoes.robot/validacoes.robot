@@ -18,5 +18,17 @@ Validar se baixou estoque
     Vender produto escolhido
     Comparar estoque
 
+
+Tentar excluir sem permissão
+    Abrir navegador
+    Logar com usuário restrito
+    Validar botão Excluir desabilitado
+
+Tentar salvar sem permissão
+    Abrir navegador
+    Logar com usuário restrito
+    Validar botão Salvar desabilitado
+
+
     
     

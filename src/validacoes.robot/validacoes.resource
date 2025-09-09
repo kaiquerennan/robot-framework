@@ -53,3 +53,46 @@ Comparar estoque
     Log To Console    Novo estoque: ${novo_estoque}
     ${estoque_esperado}=    Evaluate    int(${PRODUTO_ESTOQUE}) - int(${quantidade})
     Should Be Equal As Integers    ${novo_estoque}    ${estoque_esperado}    Estoque não foi atualizado corretamente!
+
+
+
+
+Validar botão Excluir desabilitado
+    Reload
+    Click    text=Cadastros >> nth=1
+    Sleep    0.5s
+    FOR    ${i}    IN RANGE    1    7
+          IF    '${i}' == '5'
+        ${i}=    Evaluate    ${i} + 1
+        END
+        Click    xpath=(//nav//button[@data-slot='button'])[${i}]
+        ${itens}=    Get Elements    xpath=//div[contains(@class,'gridRow')]
+        ${qtd_itens}=    Get Length    ${itens}
+        Log to console    quantidade encontrada: ${qtd_itens}
+        ${indice_aleatorio}=    Evaluate    random.randint(0, ${qtd_itens} - 1)    random
+        ${item_aleatorio}=    Set Variable    ${itens}[${indice_aleatorio}]
+        click    ${item_aleatorio}
+        Wait For Elements State    xpath=//button[text()='Excluir']    visible    timeout=5s
+        ${estado}=    Get Element States    xpath=//button[text()='Excluir']
+        Should Contain    ${estado}    disabled
+        Sleep    0.5s
+    END
+
+
+Validar botão Salvar desabilitado
+    Reload
+    Click    text=Cadastros >> nth=1
+    Sleep    0.5s
+    FOR    ${i}    IN RANGE    1    7
+        Click    xpath=(//nav//button[@data-slot='button'])[${i}]
+        ${itens}=    Get Elements    xpath=//div[contains(@class,'gridRow')]
+        ${qtd_itens}=    Get Length    ${itens}
+        Log to console    quantidade encontrada: ${qtd_itens}
+        ${indice_aleatorio}=    Evaluate    random.randint(0, ${qtd_itens} - 1)    random
+        ${item_aleatorio}=    Set Variable    ${itens}[${indice_aleatorio}]
+        click    ${item_aleatorio}
+        Wait For Elements State    xpath=//button[text()='Salvar']    visible    timeout=5s
+        ${estado}=    Get Element States    xpath=//button[text()='Salvar']
+        Should Contain    ${estado}    disabled
+        Sleep    0.5s
+    END
