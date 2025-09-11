@@ -62,9 +62,6 @@ Validar botão Excluir desabilitado
     Click    text=Cadastros >> nth=1
     Sleep    0.5s
     FOR    ${i}    IN RANGE    1    9
-          IF    '${i}' == '5'
-        ${i}=    Evaluate    ${i} + 1
-        END
         Click    xpath=(//nav//button[@data-slot='button'])[${i}]
         ${itens}=    Get Elements    xpath=//div[contains(@class,'gridRow')]
         ${qtd_itens}=    Get Length    ${itens}
