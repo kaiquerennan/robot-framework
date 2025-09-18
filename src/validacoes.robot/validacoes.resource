@@ -24,6 +24,10 @@ Escolher algum produto
     Log To Console    produto: ${produto_aleatorio}
     ${codigo_produto}=     Get Text    ${produto_aleatorio} >> css=div.flex.justify-start.flex-1.px-1:first-child
     ${estoque_produto}=    Get Text    ${produto_aleatorio} >> css=div:nth-child(3)
+    IF    int(${estoque_produto}) <= 0
+        Log To Console    Produto sem estoque, finalizando teste
+        Close Browser     
+    END
     
     Log To Console    Produto: ${produto_aleatorio}
     Log To Console    Código: ${codigo_produto}
@@ -49,7 +53,6 @@ Comparar estoque
     Acessar tela de estoque
     ${novo_estoque}=    Get Text    ${PRODUTO} >> css=div:nth-child(3)
     Log To Console    Estoque antigo: ${PRODUTO_ESTOQUE}
-    Log To Console    \n
     Log To Console    Novo estoque: ${novo_estoque}
     ${estoque_esperado}=    Evaluate    int(${PRODUTO_ESTOQUE}) - int(${quantidade})
     Should Be Equal As Integers    ${novo_estoque}    ${estoque_esperado}    Estoque não foi atualizado corretamente!
