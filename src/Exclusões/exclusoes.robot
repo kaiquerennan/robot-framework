@@ -30,6 +30,6 @@ Excluir Clientes
     #isso exclui TODOS os clientes
     Abrir navegador
     Preencher Login
-    Click    text=Cadastros
+    Click    text=Cadastros >> nth=1
     Click    text=Clientes
     Excluir Clientes
