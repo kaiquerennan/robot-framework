@@ -13,7 +13,7 @@ ${MODO_TESTE}    False
 Excluir Vendas
     Reload
     Sleep    0.5s
-    Set Browser Timeout    0.5s
+    Set Browser Timeout    2s
     FOR    ${i}    IN RANGE    1    1000
     ${vendas}=    Get Elements    xpath=(//div[contains(@class,'gridRow') and not(contains(.,'Nenhum registro encontrado'))])    
     ${qtd_vendas}=    Get Length    ${vendas}
@@ -26,7 +26,8 @@ Excluir Vendas
     ${venda_aleatoria}=    Set Variable    ${vendas}[${indice_aleatorio}]
     Click    ${venda_aleatoria}
     Click    text=Excluir
-    Sleep    0.1s
+    Sleep    0.5s
+    Wait For Elements State    selector=text=Sim, excluir    state=visible    timeout=2s
     Click    text=Sim, excluir
     Sleep    0.65s
     END
