@@ -59,7 +59,7 @@ Escolher cliente
 
 
 Realizar Operação
-    ${numero}=    Evaluate    random.randint(10, 80)    random
+    ${numero}=    Evaluate    random.randint(10, 20)    random
     Log To Console    quantidade: ${numero}
     FOR    ${i}    IN RANGE    1    ${numero}+1
     Click         xpath=/html/body/div/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/div[3]/button
