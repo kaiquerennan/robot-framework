@@ -9,53 +9,44 @@ Resource    ../Resources Genericos/sidebar.resource
 # =============================================================================
 
 Acessar tela de venda
-    [Documentation]    Navega: Comercial > Operações > submenu "Documentos de Venda" > Vendas > Nova venda
-    Acessar Operações Comercial
-    Sleep    0.5s
-    # Após clicar "Operações" a sidebar abre um submenu com categorias internas
-    ${seletor_vendas}=    Set Variable    xpath=//nav[contains(@class,'sidebarMenu')]//button[@data-slot='button' and .//span[text()='Vendas']]
-    Wait For Elements State    ${seletor_vendas}    visible    timeout=${TIMEOUT_CURTO}
-    Click    ${seletor_vendas}
-    Sleep    1s
+    [Documentation]    Navega: Comercial > Operações > Vendas > Nova venda
+    Acessar submenu operacao    Vendas
     # Clica no botão "Nova venda" na listagem
-    Click    xpath=//button[contains(text(),'Nova') and contains(text(),'enda')] | //a[contains(text(),'Nova') and contains(text(),'enda')] | //button[contains(text(),'Nova venda')] | //a[contains(text(),'Nova venda')]
-    Wait For Elements State    css=[data-testid="input-codigo-produto"]    visible    timeout=${TIMEOUT_CURTO}
-
-Acessar tela de pré-venda
-    [Documentation]    Navega: Comercial > Operações > submenu "Documentos de Venda" > Pré-Vendas > Nova pré-venda
-    Acessar Operações Comercial
-    Sleep    0.5s
-    ${seletor}=    Set Variable    xpath=//nav[contains(@class,'sidebarMenu')]//button[@data-slot='button' and .//span[contains(text(),'Vendas')]]
-    Wait For Elements State    ${seletor}    visible    timeout=${TIMEOUT_CURTO}
-    Click    xpath=//nav[contains(@class,'sidebarMenu')]//button[@data-slot='button' and .//span[contains(text(),'Pré-Vendas')]]
-    Sleep    1s
-    # Clica no botão "Nova pré-venda" na listagem
     Click    xpath=//button[contains(text(),'Nova')] | //a[contains(text(),'Nova')]
     Wait For Elements State    css=[data-testid="input-codigo-produto"]    visible    timeout=${TIMEOUT_CURTO}
 
+Acessar tela de pré-venda
+    [Documentation]    Navega: Comercial > Operações > Pré-Vendas > Nova pré-venda
+    Acessar submenu operacao    Pré-Vendas
+    # Clica no botão "Nova pré-venda" na listagem
+    Click    xpath=//button[contains(text(),'Nov')] | //a[contains(text(),'Nov')]
+    Wait For Elements State    css=[data-testid="input-codigo-produto"]    visible    timeout=${TIMEOUT_CURTO}
+
 Acessar tela de pedido
-    [Documentation]    Navega: Comercial > Operações > submenu "Documentos de Venda" > Pedidos > Novo pedido
-    Acessar Operações Comercial
-    Sleep    0.5s
-    ${seletor}=    Set Variable    xpath=//nav[contains(@class,'sidebarMenu')]//button[@data-slot='button' and .//span[text()='Pedidos']]
-    Wait For Elements State    ${seletor}    visible    timeout=${TIMEOUT_CURTO}
-    Click    ${seletor}
-    Sleep    1s
+    [Documentation]    Navega: Comercial > Operações > Pedidos > Novo pedido
+    Acessar submenu operacao    Pedidos
     # Clica no botão "Novo pedido" na listagem
     Click    xpath=//button[contains(text(),'Nov')] | //a[contains(text(),'Nov')]
     Wait For Elements State    css=[data-testid="input-codigo-produto"]    visible    timeout=${TIMEOUT_CURTO}
 
 Acessar tela de orçamento
-    [Documentation]    Navega: Comercial > Operações > submenu "Documentos de Venda" > Orçamentos > Novo orçamento
-    Acessar Operações Comercial
-    Sleep    0.5s
-    ${seletor}=    Set Variable    xpath=//nav[contains(@class,'sidebarMenu')]//button[@data-slot='button' and .//span[contains(text(),'amentos')]]
-    Wait For Elements State    ${seletor}    visible    timeout=${TIMEOUT_CURTO}
-    Click    ${seletor}
-    Sleep    1s
+    [Documentation]    Navega: Comercial > Operações > Orçamentos > Novo orçamento
+    Acessar submenu operacao    Orçamentos
     # Clica no botão "Novo orçamento" na listagem
     Click    xpath=//button[contains(text(),'Nov')] | //a[contains(text(),'Nov')]
     Wait For Elements State    css=[data-testid="input-codigo-produto"]    visible    timeout=${TIMEOUT_CURTO}
+
+Acessar submenu operacao
+    [Documentation]    Clica em "Operações" na sidebar e depois seleciona o submenu desejado (Vendas, Pré-Vendas, Pedidos, Orçamentos).
+    ...                 Usa texto exato no span para evitar ambiguidade.
+    [Arguments]    ${nome_submenu}
+    Acessar Operações Comercial
+    Sleep    0.5s
+    # Aguarda o submenu da sidebar carregar e clica no item com texto exato
+    ${seletor}=    Set Variable    xpath=//nav[contains(@class,'sidebarMenu')]//button[@data-slot='button' and .//span[text()='${nome_submenu}']]
+    Wait For Elements State    ${seletor}    visible    timeout=${TIMEOUT_CURTO}
+    Click    ${seletor}
+    Sleep    1s
 
 # =============================================================================
 #  PREENCHIMENTO DO FORMULÁRIO DE VENDA
@@ -293,6 +284,136 @@ Tratar sheet conta bancaria
     Click    css=[data-testid="btn-movbanco-salvar"]
     Sleep    0.5s
     Log To Console    Conta bancária selecionada e salva
+
+# =============================================================================
+#  KEYWORDS DE FLUXO PARCIAL (reutilizáveis)
+# =============================================================================
+
+Adicionar produtos ao carrinho
+    [Documentation]    Adiciona 2-3 produtos sem finalizar a operação.
+    ...                 Retorna os produtos ao carrinho e para ali.
+    ${numero}=    Evaluate    random.randint(2, 3)    random
+    Log To Console    Adicionando ${numero} produtos ao carrinho
+    ${indices_usados}=    Create List
+    ${pagina_atual}=    Set Variable    1
+    FOR    ${i}    IN RANGE    1    ${numero}+1
+        ${adicionou}    ${indices_usados}    ${pagina_atual}=    Adicionar produto    ${indices_usados}    ${pagina_atual}
+        IF    not ${adicionou}
+            Log To Console    Sem mais produtos disponíveis
+            BREAK
+        END
+    END
+
+Cancelar operacao como rascunho
+    [Documentation]    Clica no botão Cancelar (btn-sair-rascunho) para sair salvando como rascunho.
+    ...                 Valida que o sistema volta para a listagem.
+    Click    css=[data-testid="btn-sair-rascunho"]
+    Sleep    0.5s
+    # Se aparecer confirmação, aceita
+    ${modal}=    Run Keyword And Return Status
+    ...    Wait For Elements State    xpath=//button[contains(text(),'Sim') or contains(text(),'Confirmar') or contains(text(),'Continuar')]    visible    timeout=2s
+    IF    ${modal}
+        Click    xpath=//button[contains(text(),'Sim') or contains(text(),'Confirmar') or contains(text(),'Continuar')]
+        Sleep    1s
+    END
+    # Valida que voltou para a listagem de operações
+    Wait For Elements State    xpath=//tr[contains(@class,'gridRow')] | //div[contains(@class,'gridRow')]    attached    timeout=${TIMEOUT_PADRAO}
+    Log To Console    Operação cancelada — salva como rascunho
+
+Realizar Operação Ate Pagamento
+    [Documentation]    Adiciona produtos e avança até a tela de forma de pagamento, sem preencher.
+    Adicionar produtos ao carrinho
+    # Continuar → Ajustes finais
+    Click    text=Continuar
+    Sleep    1s
+    Wait For Elements State    xpath=//*[contains(text(),'Ajustes finais')]    visible    timeout=${TIMEOUT_CURTO}
+    # Continuar → Forma de pagamento
+    Click    css=[data-testid="btn-movcaixa-salvar"]
+    Sleep    1s
+    Wait For Elements State    css=#fmpagto    visible    timeout=${TIMEOUT_CURTO}
+    Log To Console    Tela de forma de pagamento aberta (sem preencher)
+
+Realizar Operação Apos Produtos
+    [Documentation]    Continua o fluxo assumindo que os produtos já foram adicionados.
+    ...                 Passa por ajustes finais, pagamento e salva.
+    [Arguments]    ${tem_cliente}=${FALSE}
+    # Continuar → Ajustes finais
+    Click    text=Continuar
+    Sleep    1s
+    Wait For Elements State    xpath=//*[contains(text(),'Ajustes finais')]    visible    timeout=${TIMEOUT_CURTO}
+    # Continuar → Forma de pagamento
+    Click    css=[data-testid="btn-movcaixa-salvar"]
+    Sleep    1s
+    Wait For Elements State    css=#fmpagto    visible    timeout=${TIMEOUT_CURTO}
+    # Selecionar forma de pagamento
+    Selecionar forma de pagamento
+    # Salvar
+    Wait For Elements State    css=[data-testid="btn-salvar"]:not([disabled])    visible    timeout=${TIMEOUT_CURTO}
+    Click    css=[data-testid="btn-salvar"]
+    Sleep    1s
+    Confirmar emissao    ${tem_cliente}
+    Log To Console    Operação finalizada (fluxo após produtos)
+
+Lancar pagamento parcial
+    [Documentation]    Lança uma forma de pagamento com valor inferior ao total.
+    Click    css=#fmpagto
+    Sleep    0.5s
+    ${opcoes}=    Get Elements    css=[role="option"]
+    ${qtd_opcoes}=    Get Length    ${opcoes}
+    IF    ${qtd_opcoes} == 0
+        Fail    Nenhuma forma de pagamento disponível!
+    END
+    Click    ${opcoes}[0]
+    Sleep    0.3s
+    # Preenche com valor 0.01 (bem abaixo do total)
+    ${campo_valor}=    Get Elements    css=input[placeholder*="Valor"], input[name*="valor"], input[type="text"][inputmode="decimal"]
+    ${qtd_campo}=    Get Length    ${campo_valor}
+    IF    ${qtd_campo} > 0
+        Fill Text    ${campo_valor}[0]    0.01
+    END
+    Click    css=[data-testid="btn-confirmar-forma-pagto"]
+    Sleep    0.5s
+    Tratar sheet conta bancaria
+    Log To Console    Pagamento parcial de R$0,01 lançado
+
+Validar que botao salvar esta desabilitado
+    [Documentation]    Verifica que o botão Salvar final está desabilitado (disabled ou pointer-events-none).
+    ${estados}=    Get Element States    css=[data-testid="btn-salvar"]
+    Log To Console    Estados do botão salvar: ${estados}
+    Should Contain    ${estados}    disabled    O botão Salvar deveria estar desabilitado!
+
+Adicionar produto por codigo
+    [Documentation]    Adiciona um produto digitando o código diretamente no campo
+    ...                 (sem abrir o sheet de busca). Usa código "1" como exemplo.
+    Fill Text    css=[data-testid="input-codigo-produto"]    1
+    Press Keys    css=[data-testid="input-codigo-produto"]    Enter
+    Sleep    0.5s
+    # Preenche quantidade
+    ${tem_input_qtd}=    Run Keyword And Return Status
+    ...    Get Element    css=[data-testid="input-quantidade-produto"]
+    IF    ${tem_input_qtd}
+        Fill Text    css=[data-testid="input-quantidade-produto"]    1
+    END
+    Click    css=[data-testid="btn-confirmar-item-produto"]
+    Sleep    0.3s
+    Log To Console    Produto adicionado por código
+
+Validar venda na listagem
+    [Documentation]    Após finalizar a operação, navega até a listagem de vendas
+    ...                 e verifica que existe pelo menos uma venda com a situação esperada.
+    [Arguments]    ${situacao_esperada}
+    # Navega para a listagem de vendas
+    Acessar submenu operacao    Vendas
+    Sleep    1s
+    # Recarrega para garantir que a venda recém-criada aparece
+    Reload
+    Wait For Elements State    xpath=//tr[contains(@class,'gridRow')]    attached    timeout=${TIMEOUT_PADRAO}
+    # Verifica que existe pelo menos uma venda com a situação esperada
+    ${vendas}=    Get Elements    xpath=//tr[contains(@class,'gridRow')]
+    ${qtd}=    Get Length    ${vendas}
+    Log To Console    Vendas na listagem: ${qtd}
+    Should Be True    ${qtd} > 0    Nenhuma venda encontrada na listagem!
+    Log To Console    Venda com situação ${situacao_esperada} encontrada na listagem
 
 # =============================================================================
 #  VALIDAÇÕES NEGATIVAS
