@@ -4,27 +4,30 @@ Resource    ../Resources Genericos/sidebar.resource
 
 *** Keywords ***
 
-Cadastrar Produtos
+Acessar cadastro de produto
     Acessar Cadastros Comercial
     Sleep    0.5s
     Click    text=Produtos
     Click    text=Novo Produto
+
+Cadastrar produto
+    Acessar cadastro de produto
     ${nome}=    Gerar Nome Produto
     Fill Text    css=#descricao    ${nome}
     Fill Text    css=#descricaoResumida    ${nome}
     Click    text=Gerenciar
     Click    css=#n1
     Click    xpath=(//div[@role="option"])[1]
-    Click    css=div.btn-default.bg-primary >> text=Salvar
+    Click    xpath=(//div[contains(@class,'dialog') or @role='dialog']//button[contains(text(),'Salvar') or contains(text(),'Confirmar')])[last()]
     Click    css=#unidadeComercialId
     Click    xpath=(//div[@role="option"])[2]
-    Click    text=Preços / Custos
+    Click    xpath=//button[@role='tab'][contains(., 'Pre')]
     Fill Text    css=#precoPadrao    20,00
-    Click    text=Salvar
+    Click    css=button[data-testid="btn-salvar"]
     Wait For Elements State    text=Produto cadastrado    state=visible    timeout=${TIMEOUT_CURTO}
 
 Editar produto existente
-    [Documentation]    Seleciona um produto existente e altera seu preço
+    [Documentation]    Seleciona um produto existente e altera seu preco
     Acessar Cadastros Comercial
     Sleep    0.5s
     Click    text=Produtos
@@ -37,17 +40,17 @@ Editar produto existente
     ${indice}=    Evaluate    random.randint(0, ${qtd_produtos} - 1)    random
     ${produto}=    Set Variable    ${produtos}[${indice}]
     Click    ${produto}
-    Wait For Elements State    text=Preços / Custos    visible    timeout=${TIMEOUT_CURTO}
-    Click    text=Preços / Custos
+    Wait For Elements State    xpath=//button[@role='tab'][contains(., 'Pre')]    visible    timeout=${TIMEOUT_CURTO}
+    Click    xpath=//button[@role='tab'][contains(., 'Pre')]
     ${novo_preco}=    Evaluate    f"{random.randint(10, 500)},00"    random
     Fill Text    css=#precoPadrao    ${novo_preco}
-    Click    text=Salvar
+    Click    css=button[data-testid="btn-salvar"]
     Wait For Elements State    text=Produto atualizado    state=visible    timeout=${TIMEOUT_CURTO}
 
-Validar campo obrigatório produto
-    [Documentation]    Tenta salvar um produto sem preencher campos obrigatórios
-    Click    text=Salvar
-    Wait For Elements State    xpath=//*[contains(text(),'obrigatório') or contains(text(),'Obrigatório') or contains(text(),'required') or contains(@class,'error')]    visible    timeout=${TIMEOUT_CURTO}
+Validar campo obrigatorio produto
+    [Documentation]    Tenta salvar um produto sem preencher campos obrigatorios
+    Click    css=button[data-testid="btn-salvar"]
+    Wait For Elements State    xpath=//*[contains(text(),'obrigat') or contains(text(),'Obrigat') or contains(text(),'required') or contains(@class,'error')]    visible    timeout=${TIMEOUT_CURTO}
 
 Buscar produto por nome
     [Documentation]    Pesquisa um produto pelo nome no campo de busca

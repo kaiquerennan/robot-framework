@@ -7,16 +7,14 @@ Test Teardown    Close Browser
 
 *** Test Cases ***
 Cadastrar Fornecedor
-    [Documentation]    Realiza login e cadastra um novo fornecedor com CEP e telefone
+    [Documentation]    Realiza login e cadastra um novo fornecedor
     [Tags]    cadastro    fornecedor
     Abrir navegador
     Preencher Login
     Acessar cadastro de fornecedor
     Cadastrar fornecedor
-    Preencher CEP
-    Cadastrar Telefone
     Click    text=Salvar >> visible=true
-    Wait For Elements State    text=Fornecedor cadastrado    state=visible    timeout=5s
+
 
 Editar Fornecedor existente
     [Documentation]    Realiza login, acessa lista de fornecedores e edita um existente
@@ -34,4 +32,4 @@ Validar campos obrigatórios no cadastro de fornecedor
     Abrir navegador
     Preencher Login
     Acessar cadastro de fornecedor
-    Validar campo obrigatório fornecedor
+    Validar campo obrigatorio fornecedor

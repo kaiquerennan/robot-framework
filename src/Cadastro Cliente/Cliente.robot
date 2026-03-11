@@ -7,7 +7,7 @@ Test Teardown    Close Browser
 
 *** Test Cases ***
 Cadastrar novo cliente
-    [Documentation]    Realiza login e cadastra um novo cliente (Física ou Jurídica)
+    [Documentation]    Realiza login e cadastra um novo cliente
     [Tags]    cadastro    cliente
     Abrir navegador
     Preencher Login
@@ -24,16 +24,16 @@ Editar cliente existente
     Click    text=Clientes
     Editar cliente existente
 
-Validar campos obrigatórios no cadastro de cliente
+Validar campos obrigatorios no cadastro de cliente
     [Documentation]    Tenta salvar um cliente vazio e verifica mensagem de erro
     [Tags]    validacao    cliente    campos_obrigatorios
     Abrir navegador
     Preencher Login
     Acessar cadastro de cliente
-    Validar campo obrigatório cliente
+    Validar campo obrigatorio cliente
 
 Buscar cliente inexistente
-    [Documentation]    Busca um nome que não existe e valida que nenhum resultado é retornado
+    [Documentation]    Busca um nome inexistente no campo "Nome do cliente" e valida que a pesquisa nao retorna resultados
     [Tags]    busca    cliente
     Abrir navegador
     Preencher Login

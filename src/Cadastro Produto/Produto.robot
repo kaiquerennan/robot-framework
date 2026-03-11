@@ -7,32 +7,29 @@ Test Teardown    Close Browser
 
 *** Test Cases ***
 Cadastrar novo produto
-    [Documentation]    Realiza login e cadastra um novo produto com preço
+    [Documentation]    Realiza login e cadastra um novo produto com preco
     [Tags]    cadastro    produto
     Abrir navegador
     Preencher Login
-    Cadastrar Produtos
+    Cadastrar produto
 
 Editar produto existente
-    [Documentation]    Realiza login, acessa lista de produtos e edita o preço de um
+    [Documentation]    Realiza login, acessa lista de produtos e edita o preco de um
     [Tags]    edicao    produto
     Abrir navegador
     Preencher Login
     Editar produto existente
 
-Validar campos obrigatórios no cadastro de produto
+Validar campos obrigatorios no cadastro de produto
     [Documentation]    Tenta salvar um produto vazio e verifica mensagem de erro
     [Tags]    validacao    produto    campos_obrigatorios
     Abrir navegador
     Preencher Login
-    Acessar Cadastros Comercial
-    Sleep    0.5s
-    Click    text=Produtos
-    Click    text=Novo Produto
-    Validar campo obrigatório produto
+    Acessar cadastro de produto
+    Validar campo obrigatorio produto
 
 Buscar produto inexistente
-    [Documentation]    Busca um produto que não existe e valida que nenhum resultado é retornado
+    [Documentation]    Busca um produto que nao existe e valida que nenhum resultado e retornado
     [Tags]    busca    produto
     Abrir navegador
     Preencher Login

@@ -35,32 +35,58 @@ Fechar navegador
 Preencher CEP
     Click    text=Endereços
     Click    text=Adicionar >> visible=true
+    ${dialog}=    Set Variable    xpath=(//div[contains(@class,'dialog') or @role='dialog'])[last()]
+    Wait For Elements State    ${dialog}    visible    timeout=${TIMEOUT_CURTO}
     ${identificacao}=    Gerar Identificacao
-    Fill Text    css=input[placeholder="Identificação"]    ${identificacao}
-    Fill Text    css=input[placeholder="CEP"]    35930162
-    Wait For Elements State    css=#numero    visible    timeout=${TIMEOUT_CURTO}
+    ${campos_texto}=    Get Elements    ${dialog} >> xpath=.//input[not(@disabled) and (@type='text' or not(@type))]
+    ${qtd_campos_texto}=    Get Length    ${campos_texto}
+    IF    ${qtd_campos_texto} < 2
+        Fail    Campos insuficientes no modal de endereço para Identificação e CEP.
+    END
+    Fill Text    ${campos_texto}[0]    ${identificacao}
+    Fill Text    ${campos_texto}[1]    35930180
+
+    Wait For Elements State    ${dialog} >> css=#numero, input[name*="numero" i], input[id*="numero" i]    visible    timeout=${TIMEOUT_CURTO}
     ${numero}=    Evaluate    random.randint(1, 999)    modules=random
-    Fill Text    css=#numero    ${numero}
+    Fill Text    ${dialog} >> css=#numero, input[name*="numero" i], input[id*="numero" i]    ${numero}
     ${tipo_endereço}=    Evaluate    random.randint(1, 2)    modules=random
-    Click    css=#tipoEndereco
+    ${comboboxes}=    Get Elements    ${dialog} >> css=[role="combobox"]
+    ${qtd_comboboxes}=    Get Length    ${comboboxes}
+    IF    ${qtd_comboboxes} == 0
+        Fail    Nenhum combobox de tipo de endereço encontrado no modal.
+    END
+    Click    ${comboboxes}[0]
     Click    xpath=(//div[@role="option"])[${tipo_endereço}]
-    # Usar seletor genérico em vez de radix ID dinâmico
-    Click    xpath=(//div[contains(@class,'dialog') or @role='dialog']//button[contains(text(),'Salvar') or contains(text(),'Confirmar')])[last()]
 
 Cadastrar Telefone
     Click    text=Telefones
     Click    text=Adicionar >> visible=true
+    ${dialog}=    Set Variable    xpath=(//div[contains(@class,'dialog') or @role='dialog'])[last()]
+    Wait For Elements State    ${dialog}    visible    timeout=${TIMEOUT_CURTO}
+    ${comboboxes}=    Get Elements    ${dialog} >> css=[role="combobox"]
+    ${qtd_comboboxes}=    Get Length    ${comboboxes}
+    IF    ${qtd_comboboxes} < 2
+        Fail    Comboboxes de tipo/DDD não encontrados no modal de telefone.
+    END
     ${tipo_telefone}=    Evaluate    random.randint(1, 3)    modules=random
-    Click    css=#tipoTelefone
+    Click    ${comboboxes}[0]
     Click    xpath=(//div[@role="option"])[${tipo_telefone}]
     ${identificacao}=    Gerar Identificacao
-    Fill Text    css=input[placeholder="Identificação"]    ${identificacao}
+    ${inputs_texto}=    Get Elements    ${dialog} >> xpath=.//input[not(@disabled) and (@type='text' or not(@type))]
+    ${qtd_inputs_texto}=    Get Length    ${inputs_texto}
+    IF    ${qtd_inputs_texto} == 0
+        Fail    Nenhum input de texto encontrado no modal de telefone.
+    END
+    Fill Text    ${inputs_texto}[0]    ${identificacao}
     ${numero_telefone}=    Gerar Telefone
-    Fill Text    css=input[placeholder="Número"]    ${numero_telefone}
-    Click    css=#ddd
+    IF    ${qtd_inputs_texto} > 1
+        Fill Text    ${inputs_texto}[1]    ${numero_telefone}
+    ELSE
+        ${campo_numero}=    Get Element    ${dialog} >> css=#numero, input[name*="numero" i], input[id*="numero" i]
+        Fill Text    ${campo_numero}    ${numero_telefone}
+    END
+    Click    ${comboboxes}[1]
     Click    xpath=(//div[@role="option"])[2]
-    # Usar seletor genérico em vez de radix ID dinâmico
-    Click    xpath=(//div[contains(@class,'dialog') or @role='dialog']//button[contains(text(),'Salvar') or contains(text(),'Confirmar')])[last()]
 
 Acessar Operações
     [Documentation]    Acessa a lista de vendas via Comercial > Operações > Vendas

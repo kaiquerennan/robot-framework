@@ -1,3 +1,7 @@
 *.txt
 *.html
 *.xml
+.vscode
+.env
+*.log
+*.json
